@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+$font-stack: 'Quicksand', sans-serif;
+
+html {
+    --background-color-primary: #fff;
+    --background-color-secondary: #fafafa;
+    --accent-color: #cacaca;
+    --text-primary-color: #222;
+    --element-size: 4rem;
+    --card-background-primary: #3f4486;
+
+    --card-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.47);
+    --card-text: #fff;
+}
+
+/* Define styles for the root window with dark - mode preference */
+html[data-theme='dark'] {
+    --background-color-primary: #18181b;
+    --background-color-secondary: #202020;
+    --accent-color: #3f3f3f;
+    --text-primary-color: rgb(243, 243, 243);
+    --card-background-primary: #e7e8ed;
+
+    --card-shadow: 1px 3px 5px 0px rgba(209, 228, 253, 0.47);
+    --card-text: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eae9e9;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.resume {
+    position: relative;
+    min-height: 100vh;
+    margin: 0 35%;
+    background: var(--background-color-primary);
+    color: var(--text-primary-color);
+    font-family: $font-stack  !important;
+    overflow: hidden;
+}
+
+.mode {
+    position: relative;
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    z-index: 99;
+}
+
+.title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .resume {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu {
+        margin-left: 3%;
+        width: 94%;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 800px) {
+    .resume {
+        margin: 0 20%;
+        padding: 0;
+    }
+
+    .menu {
+        margin-left: 3%;
+        width: 54%;
+    }
+}
