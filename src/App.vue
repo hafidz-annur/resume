@@ -61,6 +61,9 @@ export default {
       document.documentElement.setAttribute("data-theme", theme);
     },
   },
+  created() {
+    document.title = "My Resume";
+  },
 };
 </script>
 
