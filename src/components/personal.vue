@@ -32,23 +32,23 @@ export default {
 
 <style lang="scss">
 html {
-  --bg-card-personal: #30307a;
+  --bg-card-personal: #0f172f;
   --bg-card-gradient: linear-gradient(
     90deg,
-    #30307a 54%,
-    #5959a3 74%,
-    #eef0ff 100%
+    #0f172f 54%,
+    #2d395e 74%,
+    #667194 100%
   );
 }
 
 /* Define styles for the root window with dark - mode preference */
 html[data-theme="dark"] {
-  --bg-card-personal: #23273c;
+  --bg-card-personal: #77a6c8;
   --bg-card-gradient: linear-gradient(
     90deg,
     #ffffff 54%,
-    #c0c4db 74%,
-    #0b242b 100%
+    #91bcdb 74%,
+    #77a6c8 100%
   );
 }
 

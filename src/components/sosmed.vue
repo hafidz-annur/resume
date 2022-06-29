@@ -120,28 +120,29 @@ export default {
 
 <style lang="scss">
 :root {
-  --bg-sosmed: #f9dad5;
-  --card-bg-sosmed: #11184f;
-  --card-bg-sosmed-active: #ea7a66;
+  --bg-sosmed: #316789;
+  --card-bg-sosmed: #77a6c8;
+  --card-bg-sosmed-active: #e65b4f;
   --card-color-sosmed: #fff;
   --card-color-sosmed-active: #fff;
-  --btn-bg: #ea7a66;
+  --btn-bg: #e65b4f;
   --btn-color: #fff;
 }
 
 :root[data-theme="dark"] {
-  --bg-sosmed: #11184f;
-  --card-bg-sosmed: #dedede;
-  --card-bg-sosmed-active: #6474e5;
-  --card-color-sosmed: #000;
+  --bg-sosmed: #77a6c8;
+  --card-bg-sosmed: #e65b4f;
+  --card-bg-sosmed-active: #316789;
+  --card-color-sosmed: #fff;
   --card-color-sosmed-active: #fff;
-  --btn-bg: #5959a3;
+  --btn-bg: #316789;
   --btn-color: #fff;
 }
 
 #sosmed {
   transition: all 0.4s;
   background: var(--bg-sosmed);
+  color: var(--card-color-sosmed);
   margin-top: -50px;
   padding: 80px 20px 30px 20px;
   border-radius: 40px 40px 0 0;

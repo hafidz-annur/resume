@@ -62,7 +62,7 @@
           :key="i"
         >
           <div
-            class="skill-icon align-items-center p-3"
+            class="skill-icon align-items-center p-2"
             v-if="tab == 'all' || tab == 'frontend'"
           >
             <img :src="require('@/assets/img/icon/' + i)" :alt="i" />
@@ -77,7 +77,7 @@
           :key="i"
         >
           <div
-            class="skill-icon align-items-center p-3"
+            class="skill-icon align-items-center p-2"
             v-if="tab == 'all' || tab == 'tools'"
           >
             <img :src="require('@/assets/img/icon/' + i)" alt="" />
@@ -127,23 +127,23 @@ export default {
 
 <style lang="scss">
 html {
-  --skill-bg: #f9dad5;
+  --skill-bg: #77a6c8;
   --skill-color: #000;
   --skill-bg-icon: #fff;
-  --skill-btn: #11184f;
+  --skill-btn: #316789;
   --skill-btn-color: #fff;
-  --skill-btn-active: #ea7a66;
+  --skill-btn-active: #e65b4f;
   --skill-btn-color-active: #fff;
 }
 
 html[data-theme="dark"] {
-  --skill-bg: #bbbbbb3a;
+  --skill-bg: #316789;
   --skill-color: #fff;
-  --skill-bg-icon: rgb(207, 207, 207);
-  --skill-btn: #6474e5;
+  --skill-bg-icon: #fff;
+  --skill-btn: #e65b4f;
   --skill-btn-color: #fff;
-  --skill-btn-active: #dddcdc;
-  --skill-btn-color-active: #000;
+  --skill-btn-active: #0f172f;
+  --skill-btn-color-active: #fff;
 }
 
 #skill {

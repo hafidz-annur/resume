@@ -78,15 +78,15 @@ export default {
 
 <style lang="scss">
 :root {
-  --border-color: #2e307a;
-  --bg-bullet: #f3c8c1;
-  --bg-bullet-active: #ea7a66;
+  --border-color: #316789;
+  --bg-bullet: #77a6c8;
+  --bg-bullet-active: #e65b4f;
 }
 
 :root[data-theme="dark"] {
-  --border-color: #adadad;
-  --bg-bullet: #dedede;
-  --bg-bullet-active: #6474e5;
+  --border-color: #e65b4f;
+  --bg-bullet: #77a6c8;
+  --bg-bullet-active: #316789;
 }
 
 .ex-icon {

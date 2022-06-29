@@ -57,6 +57,7 @@
           width: '100%',
           gap: 15,
           type: 'loop',
+          arrows: false,
           padding: { left: 40, right: 40 },
         }"
         class="pb-5"
@@ -72,7 +73,7 @@
               alt="Resume"
             />
           </div>
-          <div class="p-desc">
+          <div class="p-desc shadow">
             {{ i.desc }}
           </div>
         </SplideSlide>
@@ -116,20 +117,21 @@ export default {
 
 <style lang="scss">
 :root {
-  --p-bg: #dedede;
-  --card-bg: #ea7a66;
+  --p-bg: #77a6c8;
+  --card-bg: #316789;
   --card-color: #fff;
 }
 :root[data-theme="dark"] {
-  --p-bg: #bbbbbb3a;
+  --p-bg: #316789;
   --card-bg: #fff;
-  --card-color: #ea7a66;
+  --card-color: #000;
 }
 
 #portofolio {
   margin-top: 140px;
   background: var(--p-bg);
   padding: 40px 20px 50px 20px;
+  border-radius: 30px 30px 0 0;
 }
 
 .p-card {
@@ -157,7 +159,7 @@ export default {
   background: var(--card-bg);
   color: var(--card-color);
   position: relative;
-  width: 80%;
+  width: 90%;
   margin: auto;
   z-index: 9;
   padding: 20px;

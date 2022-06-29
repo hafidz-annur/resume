@@ -1,7 +1,16 @@
 <template>
   <div class="resume">
     <div class="menu-top">
-      <div class="btn-top">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          v-model="status"
+          type="checkbox"
+          role="switch"
+          @change="checkStatus"
+        />
+      </div>
+      <!-- <div class="btn-top">
         <img
           src="@/assets/img/icon/brightness.svg"
           alt=""
@@ -14,7 +23,7 @@
           v-if="mode != ''"
           @click="checkMode('')"
         ></i>
-      </div>
+      </div> -->
     </div>
     <v-personal />
     <v-sosmed />
@@ -49,12 +58,21 @@ export default {
   data() {
     return {
       mode: "",
+      status: true,
     };
   },
   methods: {
     checkMode(theme) {
       this.mode = theme;
       document.documentElement.setAttribute("data-theme", theme);
+    },
+
+    checkStatus() {
+      if (this.status) {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
     },
   },
   created() {
@@ -73,6 +91,11 @@ export default {
 :root[data-theme="dark"] {
   --bg-menu: rgb(128, 126, 126);
   --bg-color: #11184f;
+}
+
+.form-check-input:checked {
+  background-color: #e65b4f;
+  border-color: #e65b4f;
 }
 
 .resume {

@@ -45,20 +45,20 @@ export default {
 <style lang="scss">
 html {
   --edu-bg: #fff;
-  --edu-card-bg: #ea7a66;
+  --edu-card-bg: #e65b4f;
   --edu-card-color: #fff;
-  --edu-btn: #11184f;
+  --edu-btn: #316789;
   --edu-btn-color: #fff;
-  --shadow: #b0544447;
+  --shadow: #bd3e328e;
 }
 
 html[data-theme="dark"] {
-  --edu-bg: #18181b;
-  --edu-card-bg: #e9e9e9;
-  --edu-card-color: #000;
-  --edu-btn: #11184f;
+  --edu-bg: #0f172f;
+  --edu-card-bg: #77a6c8;
+  --edu-card-color: #fff;
+  --edu-btn: #e65b4f;
   --edu-btn-color: #fff;
-  --shadow: #5b5b5b37;
+  --shadow: #4c82a88a;
 }
 
 #education {
@@ -143,6 +143,6 @@ html[data-theme="dark"] {
 
 .edu-card:hover .edu-img,
 .edu-img:hover {
-  color: rgba(225, 225, 225, 0.314);
+  transform: rotate(-20deg);
 }
 </style>
