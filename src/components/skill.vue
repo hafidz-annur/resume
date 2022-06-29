@@ -42,96 +42,45 @@
         "
       >
         <!-- Back-End  -->
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'backend'">
+        <div
+          class="col"
+          :class="tab == 'all' || tab == 'backend' ? 'd-flex' : 'd-none'"
+          v-for="i in skill.backend"
+          :key="i"
+        >
           <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/back-end/laravel-2.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'backend'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/back-end/codeigniter.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'backend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/back-end/php-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'backend'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/back-end/firebase-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'backend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/back-end/mysql-4.svg" alt="" />
+            <img :src="require('@/assets/img/icon/' + i)" :alt="i" />
           </div>
         </div>
 
+        <!-- {{ skill.frontend }} -->
         <!-- Front-End  -->
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/front-end/html-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/front-end/css-3.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/front-end/javascript-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/front-end/jquery.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/front-end/sass-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/front-end/bootstrap-5-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'frontend'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/front-end/vue-9.svg" alt="" />
+        <div
+          class="col"
+          :class="tab == 'all' || tab == 'frontend' ? 'd-flex' : 'd-none'"
+          v-for="i in skill.frontend"
+          :key="i"
+        >
+          <div
+            class="skill-icon align-items-center p-3"
+            v-if="tab == 'all' || tab == 'frontend'"
+          >
+            <img :src="require('@/assets/img/icon/' + i)" :alt="i" />
           </div>
         </div>
 
         <!-- Tools  -->
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'tools'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/tools/cpanel.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'tools'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/tools/xampp.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'tools'">
-          <div class="skill-icon align-items-center p-3">
-            <img src="@/assets/img/icon/tools/figma-1.svg" alt="" />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'tools'">
-          <div class="skill-icon align-items-center">
-            <img
-              src="@/assets/img/icon/tools/visual-studio-code-1.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="col d-flex" v-if="tab == 'all' || tab == 'tools'">
-          <div class="skill-icon align-items-center">
-            <img src="@/assets/img/icon/tools/photoshop-cc-4.svg" alt="" />
+        <div
+          class="col"
+          :class="tab == 'all' || tab == 'tools' ? 'd-flex' : 'd-none'"
+          v-for="i in skill.tool"
+          :key="i"
+        >
+          <div
+            class="skill-icon align-items-center p-3"
+            v-if="tab == 'all' || tab == 'tools'"
+          >
+            <img :src="require('@/assets/img/icon/' + i)" alt="" />
           </div>
         </div>
       </div>
@@ -145,8 +94,34 @@ export default {
   data() {
     return {
       tab: "all",
+      skill: {
+        backend: [
+          "back-end/laravel-2.svg",
+          "back-end/codeigniter.svg",
+          "back-end/php-1.svg",
+          "back-end/firebase-1.svg",
+          "back-end/mysql-4.svg",
+        ],
+        frontend: [
+          "front-end/html-1.svg",
+          "front-end/css-3.svg",
+          "front-end/javascript-1.svg",
+          "front-end/jquery.svg",
+          "front-end/sass-1.svg",
+          "front-end/bootstrap-5-1.svg",
+          "front-end/vue-9.svg",
+        ],
+        tool: [
+          "tools/cpanel.svg",
+          "tools/xampp.svg",
+          "tools/figma-1.svg",
+          "tools/visual-studio-code-1.svg",
+          "tools/photoshop-cc-4.svg",
+        ],
+      },
     };
   },
+  created() {},
 };
 </script>
 
@@ -222,5 +197,11 @@ html[data-theme="dark"] {
 .skill-icon img {
   width: 100%;
   align-items: center;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.skill-icon:hover img {
+  transform: scale(1.2);
 }
 </style>

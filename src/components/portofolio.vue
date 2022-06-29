@@ -122,14 +122,14 @@ export default {
 }
 :root[data-theme="dark"] {
   --p-bg: #bbbbbb3a;
-  --card-bg: #e9e9e9;
+  --card-bg: #fff;
   --card-color: #ea7a66;
 }
 
 #portofolio {
   margin-top: 140px;
   background: var(--p-bg);
-  padding: 40px 20px 90px 20px;
+  padding: 40px 20px 50px 20px;
 }
 
 .p-card {

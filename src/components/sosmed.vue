@@ -9,7 +9,7 @@
         <div class="sosmed-card">
           <label class="d-block">{{ desc.type }}</label>
           <div class="sosmed-name">{{ desc.name }}</div>
-          <button class="sosmed-btn shadow mt-3">
+          <button class="sosmed-btn shadow mt-3" @click="redirect(desc.link)">
             {{ desc.button }} <i class="fa-solid fa-arrow-right ms-2"></i>
           </button>
         </div>
@@ -86,27 +86,32 @@ export default {
         this.desc.icon = "fa-brands fa-facebook-f";
         this.desc.type = "Facebook";
         this.desc.name = "Hafidz Annur";
-        this.desc.link = "https://www.instagram.com/hafidz_annur/";
+        this.desc.link = "https://web.facebook.com/hafid.annur/";
         this.desc.button = "Add to Friend";
       } else if (n == "linkedin") {
         this.desc.icon = "fa-brands fa-linkedin";
         this.desc.type = "Linkedin";
         this.desc.name = "Hafidz Annur";
-        this.desc.link = "https://www.instagram.com/hafidz_annur/";
+        this.desc.link =
+          "https://www.linkedin.com/in/hafidz-annur-fanany-1082a213a/";
         this.desc.button = "Follow";
       } else if (n == "github") {
         this.desc.icon = "fa-brands fa-github";
         this.desc.type = "Github";
         this.desc.name = "Hafidz Annur";
-        this.desc.link = "https://www.instagram.com/hafidz_annur/";
+        this.desc.link = "https://github.com/hafidz-annur/";
         this.desc.button = "Visit Now";
       } else if (n == "twitter") {
         this.desc.icon = "fa-brands fa-twitter";
         this.desc.type = "Twitter";
         this.desc.name = "Hafidz Annur";
-        this.desc.link = "https://www.instagram.com/hafidz_annur/";
+        this.desc.link = "https://twitter.com/25_annur";
         this.desc.button = "Follow";
       }
+    },
+
+    redirect(link) {
+      window.open(link, "_blank");
     },
   },
   created() {},
