@@ -1,5 +1,21 @@
 <template>
   <div class="resume">
+    <div class="menu-top">
+      <div class="btn-top">
+        <img
+          src="@/assets/img/icon/brightness.svg"
+          alt=""
+          @click="checkMode('dark')"
+          v-if="mode == ''"
+          class="pointer"
+        />
+        <i
+          class="fa-solid fa-moon fa-1x pointer"
+          v-if="mode != ''"
+          @click="checkMode('')"
+        ></i>
+      </div>
+    </div>
     <v-personal />
     <v-sosmed />
     <v-experience />
@@ -7,26 +23,6 @@
     <v-skill />
     <v-hobby />
     <v-portofolio />
-
-    <div class="menu-content">
-      <div class="menu">
-        <div class="menu-mode d-flex align-items-center">
-          <div class="w-100 text-center p-3">
-            <img
-              src="@/assets/img/icon/brightness.svg"
-              alt=""
-              @click="checkMode('dark')"
-              v-if="mode == ''"
-            />
-            <i
-              class="fa-solid fa-moon fa-xl pointer"
-              v-if="mode != ''"
-              @click="checkMode('')"
-            ></i>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -69,7 +65,7 @@ export default {
 
 <style lang="scss">
 :root {
-  --bg-menu: #11184f;
+  --bg-menu: #fcbaae;
   --bg-color: #ea7a66;
 }
 
@@ -80,7 +76,7 @@ export default {
 }
 
 .resume {
-  padding-top: 30px !important;
+  padding-top: 35px !important;
 }
 
 #app {
@@ -122,5 +118,37 @@ export default {
   width: 65px;
   height: 65px;
   transform: translateX(-50%);
+}
+
+.menu-top {
+  position: fixed;
+  z-index: 9999;
+  top: 15px;
+  right: 15px;
+  display: flex;
+}
+
+.btn-top {
+  width: 35px;
+  height: 35px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: var(--bg-menu);
+}
+
+.btn-top img {
+  width: 100%;
+}
+
+.btn-top i {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 1.2em;
+}
+
+@media only screen and (min-width: 1200px) {
+  .menu-top {
+    right: 36%;
+  }
 }
 </style>
