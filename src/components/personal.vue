@@ -31,38 +31,16 @@ export default {
 </script>
 
 <style lang="scss">
-html {
-  --bg-card-personal: #0f172f;
-  --bg-card-gradient: linear-gradient(
-    90deg,
-    #0f172f 54%,
-    #2d395e 74%,
-    #667194 100%
-  );
-}
-
-/* Define styles for the root window with dark - mode preference */
-html[data-theme="dark"] {
-  --bg-card-personal: #77a6c8;
-  --bg-card-gradient: linear-gradient(
-    90deg,
-    #ffffff 54%,
-    #91bcdb 74%,
-    #77a6c8 100%
-  );
-}
-
 #personal {
   transition: all 0.4s;
   padding: 0 20px;
-  background: var(--bg-color-primary);
 }
 
 .card {
   transition: all 0.4s;
-  background: var(--bg-card-personal);
-  background: var(--bg-card-gradient);
-  color: var(--card-text);
+  background: var(--primary);
+  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--four);
   border-radius: 20px;
 }
 

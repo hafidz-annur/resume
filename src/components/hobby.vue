@@ -75,20 +75,11 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --hb-bg-icon: rgb(222, 224, 223);
-  --hb-bg-icon-active: #797deb;
-}
-:root[data-theme="dark"] {
-  --hb-bg-icon: rgb(112, 109, 109);
-  --hb-bg-icon-active: #fff;
-}
-
 #hobby {
   border-radius: 40px 40px 0 0;
   margin-top: -30px;
   padding: 50px 20px 20px 20px;
-  background: var(--background-color-primary);
+  background: var(--background);
 }
 
 .hb-content {
@@ -103,13 +94,15 @@ export default {
   height: 100px;
   border-radius: 50px;
   padding: 15px;
-  background: var(--hb-bg-icon);
+  background: var(--secondary);
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
   transition: all 0.3s ease-in-out;
 }
 
 .hb-icon.active {
   padding: 5px;
-  background: var(--hb-bg-icon-active);
+  background: var(--third);
+  background-image: linear-gradient(45deg, var(--secondary), var(--third));
 }
 
 .hb-icon.hb-icon.active::after {

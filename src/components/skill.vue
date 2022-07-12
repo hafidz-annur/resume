@@ -149,8 +149,7 @@ html[data-theme="dark"] {
 #skill {
   margin-top: -30px;
   padding: 50px 20px 50px 20px;
-  background: var(--skill-bg);
-  color: var(--skill-color);
+  background: var(--secondary);
   z-index: 0;
 }
 
@@ -164,8 +163,8 @@ html[data-theme="dark"] {
 }
 
 .tab-item {
-  background: var(--skill-btn);
-  color: var(--skill-btn-color);
+  background: var(--third);
+  color: var(--primary);
   padding: 5px 20px;
   margin-right: 8px;
   display: inline;
@@ -177,8 +176,8 @@ html[data-theme="dark"] {
 }
 
 .tab-item.active {
-  background: var(--skill-btn-active);
-  color: var(--skill-btn-color-active);
+  background: var(--primary);
+  color: var(--four);
 }
 
 .skill-card {
@@ -188,8 +187,9 @@ html[data-theme="dark"] {
 
 .skill-icon {
   padding: 0px 10px;
-  background: var(--skill-bg-icon);
-  border-radius: 20px;
+  background: var(--primary);
+  background-image: linear-gradient(15deg, var(--secondary), var(--primary));
+  border-radius: 10px;
   min-height: 80px;
   display: flex;
 }

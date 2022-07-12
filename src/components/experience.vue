@@ -77,24 +77,13 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --border-color: #316789;
-  --bg-bullet: #77a6c8;
-  --bg-bullet-active: #e65b4f;
-}
-
-:root[data-theme="dark"] {
-  --border-color: #e65b4f;
-  --bg-bullet: #77a6c8;
-  --bg-bullet-active: #316789;
-}
-
 .ex-icon {
   position: absolute;
   right: -30px;
   font-size: 8em;
   transform: rotate(-30deg);
-  color: #dadada57;
+  opacity: 0.2;
+  color: var(--primary);
   z-index: 0;
 }
 
@@ -116,7 +105,7 @@ export default {
 .ts-list {
   display: block;
   padding: 10px 5px 10px 15px;
-  border-left: 5px solid var(--border-color);
+  border-left: 5px solid var(--primary);
 }
 
 .ts-list::before {
@@ -127,12 +116,12 @@ export default {
   width: 20px;
   margin-top: -2px;
   margin-left: -27px;
-  background: var(--bg-bullet);
+  background: var(--third);
   transition: all 0.4s;
 }
 
 .ts-list.active::before {
-  background: var(--bg-bullet-active);
+  background: var(--secondary);
 }
 
 .ts-year {

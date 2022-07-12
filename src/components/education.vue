@@ -43,30 +43,12 @@ export default {
 </script>
 
 <style lang="scss">
-html {
-  --edu-bg: #fff;
-  --edu-card-bg: #e65b4f;
-  --edu-card-color: #fff;
-  --edu-btn: #316789;
-  --edu-btn-color: #fff;
-  --shadow: #bd3e328e;
-}
-
-html[data-theme="dark"] {
-  --edu-bg: #0f172f;
-  --edu-card-bg: #77a6c8;
-  --edu-card-color: #fff;
-  --edu-btn: #e65b4f;
-  --edu-btn-color: #fff;
-  --shadow: #4c82a88a;
-}
-
 #education {
   position: relative;
   z-index: 1;
   padding: 20px;
   border-radius: 0 0 40px 40px;
-  background: var(--edu-bg);
+  background: var(--background);
 }
 
 .edu-content {
@@ -97,9 +79,10 @@ html[data-theme="dark"] {
 .edu-card {
   transition: all 0.4s;
   position: relative;
-  background: var(--edu-card-bg);
-  color: var(--edu-card-color);
-  box-shadow: var(--card-shadow);
+  background: var(--secondary);
+  background-image: linear-gradient(-45deg, var(--secondary), var(--third));
+  color: var(--four);
+  box-shadow: var(--third);
   min-width: 60%;
   margin-right: 10px;
   border-radius: 20px;
@@ -122,11 +105,11 @@ html[data-theme="dark"] {
 }
 
 .year {
-  background: var(--edu-btn);
+  background: var(--primary);
   display: inline;
   padding: 5px 10px;
   border-radius: 20px;
-  color: var(--edu-btn-color);
+  color: var(--four);
   font-size: 0.7em;
 }
 
@@ -136,7 +119,8 @@ html[data-theme="dark"] {
   bottom: -40px;
   font-size: 7em;
   transform: rotate(-40deg);
-  color: var(--shadow);
+  opacity: 0.2;
+  color: var(--primary);
   transition: all 0.3s ease-in-out;
   z-index: -1;
 }

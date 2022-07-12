@@ -1,54 +1,5 @@
 <template>
   <div id="portofolio">
-    <!-- <div class="p-card">
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="p-slide">
-              <img src="@/assets/img/portofolio/d-internal.webp" alt="" />
-            </div>
-            <div class="p-desc">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
-              ut eveniet eaque commodi minus amet, voluptatum libero aspernatur
-              quas corrupti praesentium animi natus nobis porro. Commodi
-              voluptate sunt eaque adipisci.
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="@/assets/img/portofolio/d-internship.webp" alt="" />
-          </div>
-          <div class="carousel-item">
-            <img src="@/assets/img/portofolio/d-edufair.webp" alt="" />
-          </div>
-          <div class="carousel-item">
-            <img src="@/assets/img/portofolio/d-career-module.webp" alt="" />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div> -->
-
     <div class="p-card">
       <h5 class="text-center mb-3">Portfolio</h5>
       <Splide
@@ -73,7 +24,7 @@
               alt="Resume"
             />
           </div>
-          <div class="p-desc shadow">
+          <div class="p-desc">
             {{ i.desc }}
           </div>
         </SplideSlide>
@@ -116,20 +67,10 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --p-bg: #77a6c8;
-  --card-bg: #316789;
-  --card-color: #fff;
-}
-:root[data-theme="dark"] {
-  --p-bg: #316789;
-  --card-bg: #fff;
-  --card-color: #000;
-}
-
 #portofolio {
   margin-top: 140px;
-  background: var(--p-bg);
+  background: var(--primary);
+  background-image: linear-gradient(0deg, var(--secondary), var(--background));
   padding: 40px 20px 50px 20px;
   border-radius: 30px 30px 0 0;
 }
@@ -156,8 +97,9 @@ export default {
 }
 
 .p-desc {
-  background: var(--card-bg);
-  color: var(--card-color);
+  background: var(--primary);
+  background-image: linear-gradient(0deg, var(--secondary), var(--third));
+  color: var(--four);
   position: relative;
   width: 90%;
   margin: auto;
@@ -167,9 +109,5 @@ export default {
   margin-top: -40px;
   border-radius: 20px;
   text-align: center;
-}
-
-.p-desc:hover .p-slide img {
-  background: red;
 }
 </style>

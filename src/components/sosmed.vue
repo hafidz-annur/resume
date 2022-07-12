@@ -119,30 +119,15 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --bg-sosmed: #316789;
-  --card-bg-sosmed: #77a6c8;
-  --card-bg-sosmed-active: #e65b4f;
-  --card-color-sosmed: #fff;
-  --card-color-sosmed-active: #fff;
-  --btn-bg: #e65b4f;
-  --btn-color: #fff;
-}
-
-:root[data-theme="dark"] {
-  --bg-sosmed: #77a6c8;
-  --card-bg-sosmed: #e65b4f;
-  --card-bg-sosmed-active: #316789;
-  --card-color-sosmed: #fff;
-  --card-color-sosmed-active: #fff;
-  --btn-bg: #316789;
-  --btn-color: #fff;
-}
-
 #sosmed {
   transition: all 0.4s;
-  background: var(--bg-sosmed);
-  color: var(--card-color-sosmed);
+  background: var(--secondary);
+  background-image: linear-gradient(
+    180deg,
+    var(--secondary),
+    var(--background)
+  );
+  color: var(--primary-color);
   margin-top: -50px;
   padding: 80px 20px 30px 20px;
   border-radius: 40px 40px 0 0;
@@ -162,7 +147,8 @@ export default {
   font-size: 3em;
   bottom: -15px;
   z-index: 0;
-  color: #c7c7c782;
+  opacity: 0.3;
+  color: var(--primary);
 }
 
 .sosmed-name {
@@ -172,8 +158,8 @@ export default {
 }
 
 .sosmed-btn {
-  background: var(--btn-bg);
-  color: var(--btn-color);
+  background: var(--primary);
+  color: var(--four);
   padding: 5px 15px;
   font-size: 0.8em;
   border: 0;
@@ -182,9 +168,9 @@ export default {
 
 .icon {
   width: 100%;
-  background: var(--card-bg-sosmed);
-  color: var(--card-color-sosmed);
-  box-shadow: var(--card-shadow);
+  background: var(--third);
+  color: var(--four);
+  box-shadow: var(--secondary);
   padding: 7px 10px;
   text-align: center;
   border-radius: 10px;
@@ -195,7 +181,7 @@ export default {
 
 .icon.active {
   transform: scale(1.1);
-  background: var(--card-bg-sosmed-active);
-  color: var(--card-color-sosmed-active);
+  background: var(--four);
+  color: var(--primary);
 }
 </style>
