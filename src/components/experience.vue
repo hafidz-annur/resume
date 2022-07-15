@@ -1,5 +1,112 @@
 <template>
   <div id="experience">
+    <div class="row justify-content-center" v-if="currentWeather?.length != 0">
+      <div class="col-11">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div class="text-start">
+            <button
+              class="btn btn-city btn-sm py-1 px-3 shadow-sm me-1"
+              :class="city == 'Srengseng' ? 'active' : ''"
+              @click="checkLocation('Srengseng')"
+            >
+              Srengseng
+            </button>
+            <button
+              class="btn btn-city btn-sm py-1 px-3 shadow-sm"
+              :class="city == 'Surakarta' ? 'active' : ''"
+              @click="checkLocation('Surakarta')"
+            >
+              Surakarta
+            </button>
+          </div>
+          <div class="text-end">
+            <button
+              class="btn btn-city btn-sm py-1 px-3 shadow-sm"
+              :class="city == 'Location' ? 'active' : ''"
+              @click="getWetaherByLocation(yourLocation)"
+            >
+              Your Location
+            </button>
+          </div>
+        </div>
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="text-center" style="width: 40%">
+                <div class="px-3">
+                  <img
+                    :src="currentWeather.condition.icon"
+                    alt=""
+                    class="w-50"
+                  />
+                </div>
+                <p class="my-0" style="text-transform: capitalize">
+                  {{ currentWeather.condition.text }}
+                </p>
+              </div>
+              <div class="ps-4 text-end" style="width: 60%">
+                <h6 class="my-0">
+                  {{ locationWeather.region + ", " + locationWeather.country }}
+                </h6>
+                <h3 class="my-0">{{ locationWeather.name }}</h3>
+                <small class="">
+                  {{ customDate(locationWeather.localtime) }}
+                </small>
+              </div>
+            </div>
+
+            <Splide
+              :options="{
+                perPage: 2,
+                width: '100%',
+                gap: 15,
+                arrows: false,
+                padding: { left: 0, right: 20 },
+              }"
+              class="pb-3 mt-2"
+            >
+              <SplideSlide
+                class="align-items-stretch d-grid"
+                v-for="i in nextHour"
+                :key="i"
+              >
+                <div
+                  class="
+                    shadow-sm
+                    bg-white
+                    my-1
+                    text-muted
+                    p-2
+                    d-flex
+                    align-items-center
+                    justify-content-center
+                  "
+                  style="border-radius: 10px"
+                >
+                  <div class="pe-3" style="width: 40%">
+                    <img :src="i.condition.icon" class="w-100" />
+                  </div>
+                  <div class="text-end" style="width: 60%">
+                    <p
+                      class="text-muted my-0 mb-2"
+                      style="line-height: 15px; font-size: 0.8em"
+                    >
+                      {{ customTime(i.time) }}
+                    </p>
+                    <p
+                      class="text-muted my-0"
+                      style="line-height: 15px; font-size: 1em"
+                    >
+                      {{ i.condition.text }}
+                    </p>
+                  </div>
+                </div>
+              </SplideSlide>
+            </Splide>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="ex-icon">
       <i class="fa-solid fa-briefcase"></i>
     </div>
@@ -66,12 +173,100 @@
 </template>
 
 <script>
+import axios from "axios";
+import moment from "moment";
+
 export default {
   name: "experienceComp",
   data() {
     return {
       tab: 1,
+      city: "Srengseng",
+      locationWeather: [],
+      currentWeather: [],
+      forecastWeather: [],
+      nextHour: [],
+      yourLocation: {
+        latitude: "",
+        longitude: "",
+      },
     };
+  },
+  methods: {
+    customDate(d) {
+      return moment(d).format("LLL");
+    },
+
+    customTime(d) {
+      return moment(d).format("LT");
+    },
+
+    showPosition(position) {
+      this.yourLocation.latitude = position.coords.latitude;
+      this.yourLocation.longitude = position.coords.longitude;
+    },
+
+    getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    },
+
+    checkLocation(city) {
+      this.city = city;
+      this.getWeather(city);
+    },
+
+    async getWeather(city = "Srengseng") {
+      const response = await axios.get(
+        "http://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
+          city +
+          "&aqi=yes"
+      );
+
+      this.locationWeather = response.data.location;
+      this.currentWeather = response.data.current;
+      this.forecastWeather = response.data.forecast;
+
+      this.nextHour = [];
+      let array = this.forecastWeather.forecastday[0].hour;
+      let currentTime = this.locationWeather.localtime;
+      array.forEach((i) => {
+        if (i.time > currentTime) {
+          this.nextHour.push(i);
+        }
+      });
+    },
+
+    async getWetaherByLocation(i) {
+      this.city = "Location";
+      const response = await axios.get(
+        "http://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
+          i.latitude +
+          "," +
+          i.longitude +
+          "&aqi=yes"
+      );
+
+      this.locationWeather = response.data.location;
+      this.currentWeather = response.data.current;
+      this.forecastWeather = response.data.forecast;
+
+      this.nextHour = [];
+      let array = this.forecastWeather.forecastday[0].hour;
+      let currentTime = this.locationWeather.localtime;
+      array.forEach((i) => {
+        if (i.time > currentTime) {
+          this.nextHour.push(i);
+        }
+      });
+    },
+  },
+  created() {
+    this.getWeather();
+    this.getLocation();
   },
 };
 </script>
@@ -136,5 +331,18 @@ export default {
   padding-left: 20px;
   width: 60%;
   font-size: 0.9em;
+}
+
+.btn-city {
+  background: var(--secondary);
+  color: var(--four);
+  border-radius: 20px;
+  border: 0;
+  transition: all 0.3s;
+}
+
+.btn-city.active {
+  background: var(--four);
+  color: var(--primary);
 }
 </style>

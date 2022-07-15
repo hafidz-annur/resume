@@ -158,8 +158,8 @@ export default {
 }
 
 .sosmed-btn {
-  background: var(--primary);
-  color: var(--four);
+  background: var(--four);
+  color: var(--primary);
   padding: 5px 15px;
   font-size: 0.8em;
   border: 0;
