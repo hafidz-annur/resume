@@ -19,7 +19,7 @@
               Surakarta
             </button>
           </div>
-          <div class="text-end">
+          <div class="text-end" v-if="yourLocation.latitude != ''">
             <button
               class="btn btn-city btn-sm py-1 px-3 shadow-sm"
               :class="city == 'Location' ? 'active' : ''"
@@ -64,6 +64,7 @@
                 padding: { left: 0, right: 20 },
               }"
               class="pb-3 mt-2"
+              v-if="nextHour?.length != 0"
             >
               <SplideSlide
                 class="align-items-stretch d-grid"
@@ -95,7 +96,11 @@
                     </p>
                     <p
                       class="text-muted my-0"
-                      style="line-height: 15px; font-size: 1em"
+                      style="
+                        line-height: 15px;
+                        font-size: 1em;
+                        text-transform: capitalize;
+                      "
                     >
                       {{ i.condition.text }}
                     </p>
