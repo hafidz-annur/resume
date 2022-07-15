@@ -76,7 +76,7 @@ export default {
     },
   },
   created() {
-    document.title = "My Resume";
+    document.title = "My Resume - Hafidz Annur Fanany";
   },
 };
 </script>
