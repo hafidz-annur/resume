@@ -220,48 +220,56 @@ export default {
     },
 
     async getWeather(city = "Srengseng") {
-      const response = await axios.get(
-        "http://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
-          city +
-          "&aqi=yes"
-      );
+      try {
+        const response = await axios.get(
+          "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
+            city +
+            "&aqi=yes"
+        );
 
-      this.locationWeather = response.data.location;
-      this.currentWeather = response.data.current;
-      this.forecastWeather = response.data.forecast;
+        this.locationWeather = response.data.location;
+        this.currentWeather = response.data.current;
+        this.forecastWeather = response.data.forecast;
 
-      this.nextHour = [];
-      let array = this.forecastWeather.forecastday[0].hour;
-      let currentTime = this.locationWeather.localtime;
-      array.forEach((i) => {
-        if (i.time > currentTime) {
-          this.nextHour.push(i);
-        }
-      });
+        this.nextHour = [];
+        let array = this.forecastWeather.forecastday[0].hour;
+        let currentTime = this.locationWeather.localtime;
+        array.forEach((i) => {
+          if (i.time > currentTime) {
+            this.nextHour.push(i);
+          }
+        });
+      } catch (e) {
+        console.log(e.response);
+      }
     },
 
     async getWetaherByLocation(i) {
       this.city = "Location";
-      const response = await axios.get(
-        "http://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
-          i.latitude +
-          "," +
-          i.longitude +
-          "&aqi=yes"
-      );
+      try {
+        const response = await axios.get(
+          "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
+            i.latitude +
+            "," +
+            i.longitude +
+            "&aqi=yes"
+        );
 
-      this.locationWeather = response.data.location;
-      this.currentWeather = response.data.current;
-      this.forecastWeather = response.data.forecast;
+        this.locationWeather = response.data.location;
+        this.currentWeather = response.data.current;
+        this.forecastWeather = response.data.forecast;
 
-      this.nextHour = [];
-      let array = this.forecastWeather.forecastday[0].hour;
-      let currentTime = this.locationWeather.localtime;
-      array.forEach((i) => {
-        if (i.time > currentTime) {
-          this.nextHour.push(i);
-        }
-      });
+        this.nextHour = [];
+        let array = this.forecastWeather.forecastday[0].hour;
+        let currentTime = this.locationWeather.localtime;
+        array.forEach((i) => {
+          if (i.time > currentTime) {
+            this.nextHour.push(i);
+          }
+        });
+      } catch (e) {
+        console.log(e.response);
+      }
     },
   },
   created() {
