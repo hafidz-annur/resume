@@ -6,8 +6,8 @@
           <div class="text-start">
             <button
               class="btn btn-city btn-sm py-1 px-3 shadow-sm me-1"
-              :class="city == 'Srengseng' ? 'active' : ''"
-              @click="checkLocation('Srengseng')"
+              :class="city == 'Srengseng Jakarta' ? 'active' : ''"
+              @click="checkLocation('Srengseng Jakarta')"
             >
               Srengseng
             </button>
@@ -63,7 +63,7 @@
                 arrows: false,
                 padding: { left: 0, right: 20 },
               }"
-              class="pb-3 mt-2"
+              class="pb-4 mt-2"
               v-if="nextHour?.length != 0"
             >
               <SplideSlide
@@ -186,7 +186,7 @@ export default {
   data() {
     return {
       tab: 1,
-      city: "Srengseng",
+      city: "Srengseng Jakarta",
       locationWeather: [],
       currentWeather: [],
       forecastWeather: [],
@@ -224,7 +224,7 @@ export default {
       this.getWeather(city);
     },
 
-    async getWeather(city = "Srengseng") {
+    async getWeather(city = "Srengseng Jakarta") {
       try {
         const response = await axios.get(
           "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
