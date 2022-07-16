@@ -58,7 +58,6 @@
                 </small>
               </div>
             </div>
-
             <Splide
               :options="{
                 perPage: 2,
@@ -183,7 +182,8 @@
 
 <script>
 import axios from "axios";
-import moment from "moment";
+// import moment from "moment";
+import moment from "moment-timezone";
 
 export default {
   name: "experienceComp",
@@ -191,6 +191,7 @@ export default {
     return {
       tab: 1,
       city: "Srengseng Jakarta",
+      localtime: "",
       locationWeather: [],
       currentWeather: [],
       forecastWeather: [],
@@ -203,7 +204,8 @@ export default {
   },
   methods: {
     customDate(d) {
-      return moment(d).format("LLL");
+      let day = d.substr(0, 10);
+      return moment(day).format("LL");
     },
 
     customTime(d) {
@@ -242,9 +244,8 @@ export default {
 
         this.nextHour = [];
         let array = this.forecastWeather.forecastday[0].hour;
-        let currentTime = moment(this.locationWeather.localtime).unix();
         array.forEach((i) => {
-          if (i.time_epoch > currentTime) {
+          if (i.time_epoch > this.locationWeather.localtime_epoch) {
             this.nextHour.push(i);
           }
         });
@@ -270,9 +271,8 @@ export default {
 
         this.nextHour = [];
         let array = this.forecastWeather.forecastday[0].hour;
-        let currentTime = moment(this.locationWeather.localtime).unix();
         array.forEach((i) => {
-          if (i.time_epoch > currentTime) {
+          if (i.time_epoch > this.locationWeather.localtime_epoch) {
             this.nextHour.push(i);
           }
         });
