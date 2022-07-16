@@ -92,13 +92,19 @@
                   </div>
                   <div class="text-end" style="width: 60%">
                     <p
-                      class="text-muted my-0 mb-2"
-                      style="line-height: 15px; font-size: 0.8em"
+                      class="text-muted my-0 position-absolute"
+                      style="
+                        line-height: 15px;
+                        font-size: 0.8em;
+                        top: 15px;
+                        right: 10px;
+                      "
                     >
+                      <i class="fa-regular fa-clock me-2"></i>
                       {{ customTime(i.time) }}
                     </p>
                     <p
-                      class="text-muted my-0"
+                      class="text-muted my-0 mt-3"
                       style="
                         line-height: 15px;
                         font-size: 1em;
