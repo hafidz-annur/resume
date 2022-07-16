@@ -44,7 +44,11 @@
                   {{ currentWeather.condition.text }}
                 </p>
               </div>
-              <div class="ps-4 text-end" style="width: 60%">
+              <div
+                class="ps-4 text-end"
+                style="width: 60%"
+                v-if="locationWeather?.length != 0"
+              >
                 <h6 class="my-0">
                   {{ locationWeather.region + ", " + locationWeather.country }}
                 </h6>
