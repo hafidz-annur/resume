@@ -238,9 +238,9 @@ export default {
 
         this.nextHour = [];
         let array = this.forecastWeather.forecastday[0].hour;
-        let currentTime = this.locationWeather.localtime;
+        let currentTime = moment(this.locationWeather.localtime).unix();
         array.forEach((i) => {
-          if (i.time > currentTime) {
+          if (i.time_epoch > currentTime) {
             this.nextHour.push(i);
           }
         });
@@ -266,9 +266,9 @@ export default {
 
         this.nextHour = [];
         let array = this.forecastWeather.forecastday[0].hour;
-        let currentTime = this.locationWeather.localtime;
+        let currentTime = moment(this.locationWeather.localtime).unix();
         array.forEach((i) => {
-          if (i.time > currentTime) {
+          if (i.time_epoch > currentTime) {
             this.nextHour.push(i);
           }
         });
