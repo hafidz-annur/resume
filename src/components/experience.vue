@@ -157,29 +157,37 @@
           </div>
         </div>
         <div class="timeline-content text-end">
-          <div class="" v-if="tab == 1">
-            PT. Jawara Edukasih Indonesia
-            <hr class="my-1" />
-            Managing all-in's website, such as maintaining, designing and
-            improving the website performance. After that i have made several
-            systems from planning until implementation, and this system can help
-            and make it easier for company to improve performance.
-          </div>
-          <div class="" v-if="tab == 2">
-            Taman Cerdas Puntadewa
-            <hr class="my-1" />
-            Guide childs around 7th until 15th years old to learn about computer
-            science, such as how to use computer from turning on and off the
-            computer, using microsoft office and painting with windows feature
-            etc.
-          </div>
-          <div class="" v-if="tab == 3">
-            CV. Jogja Web Center
-            <hr class="my-1" />
-            Learn about how to build and maintance the website with wordpress
-            platform. After that for my taks, i have made the financial system
-            to help managing company's finance with PHP Native.
-          </div>
+          <transition name="slide">
+            <div v-if="tab == 1">
+              PT. Jawara Edukasih Indonesia
+              <hr class="my-1" />
+              Managing all-in's website, such as maintaining, designing and
+              improving the website performance. After that i have made several
+              systems from planning until implementation, and this system can
+              help and make it easier for company to improve performance.
+            </div>
+          </transition>
+
+          <transition name="slide">
+            <div v-if="tab == 2">
+              Taman Cerdas Puntadewa
+              <hr class="my-1" />
+              Guide childs around 7th until 15th years old to learn about
+              computer science, such as how to use computer from turning on and
+              off the computer, using microsoft office and painting with windows
+              feature etc.
+            </div>
+          </transition>
+
+          <transition name="slide">
+            <div v-if="tab == 3">
+              CV. Jogja Web Center
+              <hr class="my-1" />
+              Learn about how to build and maintance the website with wordpress
+              platform. After that for my taks, i have made the financial system
+              to help managing company's finance with PHP Native.
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -342,6 +350,13 @@ export default {
   background: var(--secondary);
 }
 
+.ts-list.active {
+  background: var(--four);
+  background-image: linear-gradient(60deg, var(--four) 50%, #fff);
+  color: var(--primary);
+  border-radius: 0 10px 10px 0;
+}
+
 .ts-year {
   font-size: 0.7em;
 }
@@ -367,5 +382,27 @@ export default {
 .btn-city.active {
   background: var(--four);
   color: var(--primary);
+}
+
+.exp-active {
+  background: var(--four) !important;
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-enter-active {
+  transition: all 0.6s ease-out;
+}
+
+.slide-leave-active {
+  // transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>

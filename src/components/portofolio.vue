@@ -98,8 +98,8 @@ export default {
 
 .p-desc {
   background: var(--primary);
-  background-image: linear-gradient(0deg, var(--secondary), var(--third));
-  color: var(--four);
+  background-image: linear-gradient(45deg, var(--four), rgb(239, 230, 214));
+  color: var(--primary);
   position: relative;
   width: 90%;
   margin: auto;

@@ -32,6 +32,7 @@
     <v-skill />
     <v-hobby />
     <v-portofolio />
+    <v-footer />
   </div>
 </template>
 
@@ -43,6 +44,7 @@ import Education from "./components/education";
 import Skill from "./components/skill";
 import Hobby from "./components/hobby";
 import Portofolio from "./components/portofolio";
+import Footer from "./components/footer";
 
 export default {
   name: "App",
@@ -54,6 +56,7 @@ export default {
     "v-skill": Skill,
     "v-hobby": Hobby,
     "v-portofolio": Portofolio,
+    "v-footer": Footer,
   },
   data() {
     return {
@@ -115,7 +118,7 @@ export default {
 .menu {
   transition: all 0.4s;
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
   bottom: 10px;
   width: 28%;
   margin-left: 1%;

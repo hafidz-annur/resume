@@ -48,8 +48,11 @@
           v-for="i in skill.backend"
           :key="i"
         >
-          <div class="skill-icon align-items-center">
-            <img :src="require('@/assets/img/icon/' + i)" :alt="i" />
+          <div
+            class="skill-icon align-items-center"
+            @click="getContent(i.name)"
+          >
+            <img :src="require('@/assets/img/icon/' + i.icon)" :alt="i.icon" />
           </div>
         </div>
 
@@ -63,9 +66,10 @@
         >
           <div
             class="skill-icon align-items-center p-2"
+            @click="getContent(i.name)"
             v-if="tab == 'all' || tab == 'frontend'"
           >
-            <img :src="require('@/assets/img/icon/' + i)" :alt="i" />
+            <img :src="require('@/assets/img/icon/' + i.icon)" :alt="i.icon" />
           </div>
         </div>
 
@@ -78,17 +82,31 @@
         >
           <div
             class="skill-icon align-items-center p-2"
+            @click="getContent(i.name)"
             v-if="tab == 'all' || tab == 'tools'"
           >
-            <img :src="require('@/assets/img/icon/' + i)" alt="" />
+            <img :src="require('@/assets/img/icon/' + i.icon)" :alt="i.icon" />
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="wiki-overlay" v-if="wiki" @click="wiki = !wiki"></div>
+  <div class="position-fixed p-3 wiki" :class="wiki ? 'active' : ''">
+    <div class="d-flex justify-content-between">
+      <h6 class="wiki-title">{{ shortDesc.name }}</h6>
+      <div class="text-end" @click="wiki = !wiki">
+        <i class="fa-solid fa-times"></i>
+      </div>
+    </div>
+    <hr class="my-0 mb-2" />
+    <p class="wiki-content" v-html="shortDesc.desc"></p>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "skillComp",
   data() {
@@ -96,30 +114,106 @@ export default {
       tab: "all",
       skill: {
         backend: [
-          "back-end/laravel-2.svg",
-          "back-end/codeigniter.svg",
-          "back-end/php-1.svg",
-          "back-end/firebase-1.svg",
-          "back-end/mysql-4.svg",
+          {
+            name: "Laravel",
+            icon: "back-end/laravel-2.svg",
+          },
+          {
+            name: "CodeIgniter",
+            icon: "back-end/codeigniter.svg",
+          },
+          {
+            name: "PHP",
+            icon: "back-end/php-1.svg",
+          },
+          {
+            name: "Firebase",
+            icon: "back-end/firebase-1.svg",
+          },
+          {
+            name: "MySQL",
+            icon: "back-end/mysql-4.svg",
+          },
         ],
         frontend: [
-          "front-end/html-1.svg",
-          "front-end/css-3.svg",
-          "front-end/javascript-1.svg",
-          "front-end/jquery.svg",
-          "front-end/sass-1.svg",
-          "front-end/bootstrap-5-1.svg",
-          "front-end/vue-9.svg",
+          {
+            name: "HTML",
+            icon: "front-end/html-1.svg",
+          },
+          {
+            name: "CSS",
+            icon: "front-end/css-3.svg",
+          },
+          {
+            name: "JavaScript",
+            icon: "front-end/javascript-1.svg",
+          },
+          {
+            name: "JQuery",
+            icon: "front-end/jquery.svg",
+          },
+          {
+            name: "Sass_(stylesheet_language)",
+            icon: "front-end/sass-1.svg",
+          },
+          {
+            name: "Bootstrap_(front-end_framework)",
+            icon: "front-end/bootstrap-5-1.svg",
+          },
+          {
+            name: "Vue.js",
+            icon: "front-end/vue-9.svg",
+          },
         ],
         tool: [
-          "tools/cpanel.svg",
-          "tools/xampp.svg",
-          "tools/figma-1.svg",
-          "tools/visual-studio-code-1.svg",
-          "tools/photoshop-cc-4.svg",
+          {
+            name: "CPanel",
+            icon: "tools/cpanel.svg",
+          },
+          {
+            name: "XAMPP",
+            icon: "tools/xampp.svg",
+          },
+          {
+            name: "Figma_(software)",
+            icon: "tools/figma-1.svg",
+          },
+          {
+            name: "Visual_Studio_Code",
+            icon: "tools/visual-studio-code-1.svg",
+          },
+          {
+            name: "Adobe_Photoshop",
+            icon: "tools/photoshop-cc-4.svg",
+          },
         ],
       },
+      wiki: false,
+      shortDesc: {
+        name: "",
+        desc: "",
+      },
     };
+  },
+  methods: {
+    async getContent(skill) {
+      try {
+        const response = await axios.get(
+          "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=1&formatversion=2&exsentences=3&titles=" +
+            skill +
+            "&origin=*&format=json",
+          {
+            timeout: 6500,
+          }
+        );
+
+        this.wiki = true;
+        this.shortDesc.name = response.data.query.pages[0].title;
+        this.shortDesc.desc = response.data.query.pages[0].extract;
+      } catch (e) {
+        console.log(e.response);
+      }
+    },
   },
   created() {},
 };
@@ -203,5 +297,47 @@ html[data-theme="dark"] {
 
 .skill-icon:hover img {
   transform: scale(1.2);
+}
+
+.wiki-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #31678966;
+  z-index: 99998;
+
+  transition: all 0.3s ease-in;
+}
+
+.wiki {
+  background: var(--background);
+  top: 0;
+  margin-left: -350px;
+  width: 350px;
+  height: 100vh;
+  overflow: auto;
+  opacity: 0;
+  z-index: 99999;
+  transition: all 0.3s ease-in;
+}
+
+.wiki.active {
+  opacity: 1;
+  margin-left: 0;
+}
+
+.wiki-title {
+  font-size: 1.4em;
+}
+
+.wiki-content > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.2em;
 }
 </style>
