@@ -256,6 +256,23 @@ html[data-theme="dark"] {
   display: flex;
 }
 
+.tab::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.tab::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 239, 239);
+  border-radius: 10px;
+}
+
+/* Handle */
+.tab::-webkit-scrollbar-thumb {
+  background: rgb(238, 215, 215);
+  border-radius: 10px;
+}
+
 .tab-item {
   background: var(--third);
   color: var(--primary);

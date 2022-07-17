@@ -45,7 +45,7 @@
                 </p>
               </div>
               <div
-                class="ps-4 text-end"
+                class="ps-2 text-end"
                 style="width: 60%"
                 v-if="locationWeather?.length != 0"
               >
@@ -87,7 +87,7 @@
                   "
                   style="border-radius: 10px"
                 >
-                  <div class="pe-3" style="width: 40%">
+                  <div class="pe-1" style="width: 40%">
                     <img :src="i.condition.icon" class="w-100" />
                   </div>
                   <div class="text-end" style="width: 60%">

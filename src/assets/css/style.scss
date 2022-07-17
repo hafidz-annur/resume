@@ -29,7 +29,7 @@ html[data-theme='dark'] {
 body {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: var(--background);
 }
 
 .pointer {

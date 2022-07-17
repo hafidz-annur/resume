@@ -2,7 +2,18 @@
   <div id="personal">
     <div class="intro">
       <div class="name">Hi, I am Hafidz <br /></div>
-      Software Engineer Senior
+
+      <VueWriter
+        :array="[
+          'Software Engineer Senior',
+          'Web Developer',
+          'Son of My Mother',
+          'Husband of My Wife',
+        ]"
+        :eraseSpeed="40"
+        :typeSpeed="50"
+        :delay="3000"
+      />
     </div>
     <div class="card border-0">
       <div class="card-body">
@@ -27,6 +38,7 @@ export default {
   data() {
     return {};
   },
+  created() {},
 };
 </script>
 
