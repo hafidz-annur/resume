@@ -52,7 +52,11 @@
             class="skill-icon align-items-center"
             @click="getContent(i.name)"
           >
-            <img :src="require('@/assets/img/icon/' + i.icon)" :alt="i.icon" />
+            <img
+              :src="require('@/assets/img/icon/' + i.icon)"
+              :alt="i.icon"
+              loading="lazy"
+            />
           </div>
         </div>
 

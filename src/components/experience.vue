@@ -202,6 +202,7 @@
 import axios from "axios";
 // import moment from "moment";
 import moment from "moment-timezone";
+import Swal from "sweetalert2";
 
 export default {
   name: "experienceComp",
@@ -221,6 +222,14 @@ export default {
     };
   },
   methods: {
+    loading() {
+      Swal.fire({
+        width: "100px",
+        allowOutsideClick: false,
+      });
+      Swal.showLoading();
+    },
+
     customDate(d) {
       let day = d.substr(0, 10);
       return moment(day).format("LL");
@@ -249,6 +258,7 @@ export default {
     },
 
     async getWeather(city = "Srengseng Jakarta") {
+      this.loading();
       try {
         const response = await axios.get(
           "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
@@ -270,10 +280,13 @@ export default {
       } catch (e) {
         console.log(e.response);
       }
+      Swal.close();
     },
 
     async getWetaherByLocation(i) {
       this.city = "Location";
+
+      this.loading();
       try {
         const response = await axios.get(
           "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
@@ -297,6 +310,7 @@ export default {
       } catch (e) {
         console.log(e.response);
       }
+      Swal.close();
     },
   },
   created() {
