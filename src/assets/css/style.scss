@@ -29,7 +29,7 @@ html[data-theme='dark'] {
 body {
     margin: 0;
     padding: 0;
-    background: var(--background);
+    background: rgb(207, 207, 207);
 }
 
 .pointer {
@@ -83,5 +83,37 @@ body {
     .menu {
         margin-left: 3%;
         width: 54%;
+    }
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.7s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(5%);
+    }
+}
+
+@keyframes up-bottom {
+    0% {
+        transform: translateX(-3%);
+        transform: translateY(3%);
+    }
+
+    100% {
+        transform: translateX(3%);
+        transform: translateY(-3%);
     }
 }

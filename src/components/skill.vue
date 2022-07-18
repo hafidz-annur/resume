@@ -107,6 +107,7 @@
 
 <script>
 import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "skillComp",
   data() {
@@ -197,6 +198,7 @@ export default {
   },
   methods: {
     async getContent(skill) {
+      this.loading();
       try {
         const response = await axios.get(
           "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=1&formatversion=2&exsentences=3&titles=" +
@@ -213,6 +215,14 @@ export default {
       } catch (e) {
         console.log(e.response);
       }
+      Swal.close();
+    },
+    loading() {
+      Swal.fire({
+        width: "100px",
+        allowOutsideClick: false,
+      });
+      Swal.showLoading();
     },
   },
   created() {},
@@ -220,24 +230,8 @@ export default {
 </script>
 
 <style lang="scss">
-html {
-  --skill-bg: #77a6c8;
-  --skill-color: #000;
-  --skill-bg-icon: #fff;
-  --skill-btn: #316789;
-  --skill-btn-color: #fff;
-  --skill-btn-active: #e65b4f;
-  --skill-btn-color-active: #fff;
-}
-
-html[data-theme="dark"] {
-  --skill-bg: #316789;
-  --skill-color: #fff;
-  --skill-bg-icon: #fff;
-  --skill-btn: #e65b4f;
-  --skill-btn-color: #fff;
-  --skill-btn-active: #0f172f;
-  --skill-btn-color-active: #fff;
+.swal2-container.swal2-center > .swal2-popup {
+  background: var(--background) !important;
 }
 
 #skill {
@@ -310,6 +304,7 @@ html[data-theme="dark"] {
   align-items: center;
   padding: 10px;
   transition: all 0.3s;
+  animation: up-bottom 1s ease-in-out alternate infinite;
 }
 
 .skill-icon:hover img {

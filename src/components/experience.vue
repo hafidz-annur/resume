@@ -2,7 +2,7 @@
   <div id="experience">
     <div class="row justify-content-center" v-if="currentWeather?.length != 0">
       <div class="col-11">
-        <div class="d-flex justify-content-between align-items-center mb-1">
+        <div class="d-flex justify-content-between align-items-center mb-2">
           <div class="text-start">
             <button
               class="btn btn-city btn-sm py-1 px-3 shadow-sm me-1"
@@ -38,6 +38,9 @@
                     :src="currentWeather.condition.icon"
                     alt=""
                     class="w-50"
+                    style="
+                      animation: up-bottom 2s ease-in-out infinite alternate;
+                    "
                   />
                 </div>
                 <p class="my-0" style="text-transform: capitalize">
@@ -65,8 +68,9 @@
                 gap: 15,
                 arrows: false,
                 padding: { left: 0, right: 20 },
+                pagination: false,
               }"
-              class="pb-4 mt-2"
+              class="mt-2"
               v-if="nextHour?.length != 0"
             >
               <SplideSlide
@@ -77,7 +81,7 @@
                 <div
                   class="
                     shadow-sm
-                    bg-white
+                    card-weather
                     my-1
                     text-muted
                     p-2
@@ -88,14 +92,18 @@
                   style="border-radius: 10px"
                 >
                   <div class="pe-1" style="width: 40%">
-                    <img :src="i.condition.icon" class="w-100" />
+                    <img
+                      :src="i.condition.icon"
+                      class="w-100"
+                      style="animation: slide 2s ease-in-out infinite alternate"
+                    />
                   </div>
                   <div class="text-end" style="width: 60%">
                     <p
                       class="text-muted my-0 position-absolute"
                       style="
                         line-height: 15px;
-                        font-size: 0.8em;
+                        font-size: 0.75em;
                         top: 15px;
                         right: 10px;
                       "
@@ -104,12 +112,8 @@
                       {{ customTime(i.time) }}
                     </p>
                     <p
-                      class="text-muted my-0 mt-3"
-                      style="
-                        line-height: 15px;
-                        font-size: 1em;
-                        text-transform: capitalize;
-                      "
+                      class="text-muted my-0 mt-3 f-status"
+                      style="line-height: 15px; text-transform: capitalize"
                     >
                       {{ i.condition.text }}
                     </p>
@@ -303,6 +307,14 @@ export default {
 </script>
 
 <style lang="scss">
+.card-weather {
+  background-image: linear-gradient(-45deg, #fff 20%, var(--secondary) 100%);
+}
+
+.f-status {
+  font-size: 0.9em;
+}
+
 .ex-icon {
   position: absolute;
   right: -30px;

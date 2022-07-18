@@ -1,17 +1,19 @@
 <template>
   <div id="portofolio">
     <div class="p-card">
-      <h5 class="text-center mb-3">Portfolio</h5>
+      <h5 class="mb-3">Portfolio</h5>
       <Splide
         :options="{
-          rewind: true,
+          autoplay: true,
+          type: 'loop',
           width: '100%',
+          interval: 4000,
           gap: 15,
           type: 'loop',
           arrows: false,
-          padding: { left: 40, right: 40 },
+          pagination: false,
+          padding: { left: 0, right: 40 },
         }"
-        class="pb-5"
       >
         <SplideSlide
           class="position-relative overflow-hidden"

@@ -1,8 +1,31 @@
 <template>
-  <div id="resume" :class="lang == 'id' ? 'pt-0' : 'pt-4'">
-    <div class="d-flex align-content-between align-items-center w-100 px-2">
-      <div class="w-50">
-        <div class="dropdown">
+  <div id="resume" :class="loading ? 'pt-4' : ''">
+    <div
+      class="d-flex align-items-center justify-content-center"
+      style="height: 100vh"
+      v-if="!loading"
+    >
+      <div class="w-100 text-center">
+        <img
+          src="../assets/img/loading.gif"
+          loading="lazy"
+          class="w-50"
+          style="margin-bottom: -60px"
+        />
+        <h4 class="my-0">
+          <VueWriter
+            :array="['Please Waiting']"
+            :eraseSpeed="40"
+            :typeSpeed="50"
+          />
+        </h4>
+      </div>
+    </div>
+    <transition>
+      <div class="" v-if="loading">
+        <div class="d-flex align-content-between align-items-center w-100 px-2">
+          <div class="w-50">
+            <!-- <div class="dropdown">
           <div
             class="btn btn-sm dropdown-toggle bg-light py-0 me-1"
             id="dropdownMenuButton1"
@@ -36,31 +59,33 @@
               </a>
             </li>
           </ul>
+        </div> -->
+          </div>
+          <div class="w-50">
+            <div
+              class="form-check form-switch float-end"
+              style="position: relative; z-index: 10000001"
+            >
+              <input
+                class="form-check-input"
+                v-model="status"
+                type="checkbox"
+                role="switch"
+                @change="checkStatus"
+              />
+            </div>
+          </div>
         </div>
+        <v-personal />
+        <v-sosmed />
+        <v-experience />
+        <v-edu />
+        <v-skill />
+        <v-hobby />
+        <v-portofolio />
+        <v-footer />
       </div>
-      <div class="w-50">
-        <div
-          class="form-check form-switch float-end"
-          style="position: relative; z-index: 10000001"
-        >
-          <input
-            class="form-check-input"
-            v-model="status"
-            type="checkbox"
-            role="switch"
-            @change="checkStatus"
-          />
-        </div>
-      </div>
-    </div>
-    <v-personal />
-    <v-sosmed />
-    <v-experience />
-    <v-edu />
-    <v-skill />
-    <v-hobby />
-    <v-portofolio />
-    <v-footer />
+    </transition>
   </div>
 </template>
 
@@ -92,7 +117,7 @@ export default {
       mode: "",
       status: true,
       lang: "",
-      show: false,
+      loading: false,
     };
   },
   methods: {
@@ -125,13 +150,21 @@ export default {
   },
   created() {
     document.title = "My Resume - Hafidz Annur Fanany";
-    this.$router.push({ path: "/" });
 
-    if (localStorage.getItem("lang")) {
-      this.lang = localStorage.getItem("lang");
-    } else {
-      this.lang = "en";
-    }
+    // this.$router.push({ path: "/" });
+
+    // if (localStorage.getItem("lang")) {
+    //   this.lang = localStorage.getItem("lang");
+    // } else {
+    //   this.lang = "en";
+    // }
+
+    setTimeout(
+      function () {
+        this.loading = true;
+      }.bind(this),
+      3000
+    );
   },
 };
 </script>
@@ -154,6 +187,7 @@ export default {
 }
 
 #resume {
+  background: var(--background);
   position: relative;
 }
 

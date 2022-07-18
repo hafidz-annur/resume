@@ -1,38 +1,53 @@
 <template>
   <div id="education">
     <div class="title">Education</div>
-    <div class="edu-content">
-      <div class="edu-card">
-        <div class="school">
-          <h4>STMIK Duta Bangsa</h4>
-          <h5>Surakarta</h5>
+    <Splide
+      :options="{
+        perPage: 1,
+        width: '100%',
+        gap: 10,
+        arrows: false,
+        pagination: false,
+        padding: { left: 0, right: 130 },
+      }"
+    >
+      <SplideSlide>
+        <div class="edu-card">
+          <div class="school">
+            <h4>STMIK Duta Bangsa</h4>
+            <h5>Surakarta</h5>
+          </div>
+          <div class="year">2014-2018</div>
+          <div class="edu-img">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
         </div>
-        <div class="year">2014-2018</div>
-        <div class="edu-img">
-          <i class="fa-solid fa-graduation-cap"></i>
+      </SplideSlide>
+      <SplideSlide>
+        <div class="edu-card">
+          <div class="school">
+            <h4>SMK Negeri 5</h4>
+            <h5>Surakarta</h5>
+          </div>
+          <div class="year">2011-2014</div>
+          <div class="edu-img">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
         </div>
-      </div>
-      <div class="edu-card">
-        <div class="school">
-          <h4>SMK Negeri 5</h4>
-          <h5>Surakarta</h5>
+      </SplideSlide>
+      <SplideSlide>
+        <div class="edu-card">
+          <div class="school">
+            <h4>SMP Negeri 27</h4>
+            <h5>Surakarta</h5>
+          </div>
+          <div class="year">2008-2011</div>
+          <div class="edu-img">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
         </div>
-        <div class="year">2011-2014</div>
-        <div class="edu-img">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-      </div>
-      <div class="edu-card">
-        <div class="school">
-          <h4>SMP Negeri 27</h4>
-          <h5>Surakarta</h5>
-        </div>
-        <div class="year">2008-2011</div>
-        <div class="edu-img">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-      </div>
-    </div>
+      </SplideSlide>
+    </Splide>
   </div>
 </template>
 
@@ -84,7 +99,6 @@ export default {
   color: var(--four);
   box-shadow: var(--third);
   min-width: 60%;
-  margin-right: 10px;
   border-radius: 20px;
   padding: 10px 20px;
   z-index: 1;

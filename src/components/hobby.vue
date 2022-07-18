@@ -1,48 +1,86 @@
 <template>
   <div id="hobby">
-    <div class="title text-center">Hobbies</div>
-    <div class="hb-content mt-4">
-      <div
-        :class="tab == 'game' ? 'active' : ''"
-        class="hb-icon hb-1"
-        @click="checkTab('game')"
-      >
-        <img src="@/assets/img/icon/game.webp" alt="" />
-      </div>
-      <div
-        :class="tab == 'jogging' ? 'active' : ''"
-        class="hb-icon hb-2"
-        @click="checkTab('jogging')"
-      >
-        <img src="@/assets/img/icon/jogging.webp" alt="" />
-      </div>
-      <div class="hb-text d-flex align-items-center">
-        <div class="w-100 text-center">
-          {{ titleTab }}
+    <div class="title mb-2">Hobbies</div>
+
+    <Splide
+      :options="{
+        autoplay: true,
+        type: 'loop',
+        perPage: 1,
+        interval: 2000,
+        width: '100%',
+        gap: 20,
+        arrows: false,
+        pagination: false,
+        padding: { left: 0, right: 130 },
+      }"
+    >
+      <SplideSlide class="py-2">
+        <div class="card-outline d-flex align-items-center">
+          <div
+            class="position-absolute card-icon p-1 px-4 shadow-sm"
+            style="width: 45%; border-radius: 15px"
+          >
+            <img src="@/assets/img/icon/game.webp" class="w-100" />
+          </div>
+          <div class="d-flex card-title align-items-center shadow-sm">
+            <h3 class="my-0">Play Game</h3>
+          </div>
         </div>
-      </div>
-      <div
-        :class="tab == 'gitar' ? 'active' : ''"
-        class="hb-icon hb-3"
-        @click="checkTab('gitar')"
-      >
-        <img src="@/assets/img/icon/gitar.webp" alt="" />
-      </div>
-      <div
-        :class="tab == 'musik' ? 'active' : ''"
-        class="hb-icon hb-4"
-        @click="checkTab('musik')"
-      >
-        <img src="@/assets/img/icon/musik.webp" alt="" />
-      </div>
-      <div
-        :class="tab == 'movie' ? 'active' : ''"
-        class="hb-icon hb-5"
-        @click="checkTab('movie')"
-      >
-        <img src="@/assets/img/icon/movie.webp" alt="" />
-      </div>
-    </div>
+      </SplideSlide>
+      <SplideSlide class="py-2">
+        <div class="card-outline d-flex align-items-center">
+          <div
+            class="position-absolute card-icon p-1 px-4 shadow-sm"
+            style="width: 45%; border-radius: 15px"
+          >
+            <img src="@/assets/img/icon/jogging.webp" class="w-100" />
+          </div>
+          <div class="d-flex card-title align-items-center shadow-sm">
+            <h3 class="my-0">Jogging</h3>
+          </div>
+        </div>
+      </SplideSlide>
+      <SplideSlide class="py-2">
+        <div class="card-outline d-flex align-items-center">
+          <div
+            class="position-absolute card-icon p-1 px-4 shadow-sm"
+            style="width: 45%; border-radius: 15px"
+          >
+            <img src="@/assets/img/icon/musik.webp" class="w-100" />
+          </div>
+          <div class="d-flex card-title align-items-center shadow-sm">
+            <h3 class="my-0">Listen Music</h3>
+          </div>
+        </div>
+      </SplideSlide>
+      <SplideSlide class="py-2">
+        <div class="card-outline d-flex align-items-center">
+          <div
+            class="position-absolute card-icon p-1 px-4 shadow-sm"
+            style="width: 45%; border-radius: 15px"
+          >
+            <img src="@/assets/img/icon/movie.webp" class="w-100" />
+          </div>
+          <div class="d-flex card-title align-items-center shadow-sm">
+            <h3 class="my-0">Watch a Movie</h3>
+          </div>
+        </div>
+      </SplideSlide>
+      <SplideSlide class="py-2">
+        <div class="card-outline d-flex align-items-center">
+          <div
+            class="position-absolute card-icon p-1 px-4 shadow-sm"
+            style="width: 45%; border-radius: 15px"
+          >
+            <img src="@/assets/img/icon/gitar.webp" class="w-100" />
+          </div>
+          <div class="d-flex card-title align-items-center shadow-sm">
+            <h3 class="my-0">Play Gitar</h3>
+          </div>
+        </div>
+      </SplideSlide>
+    </Splide>
   </div>
 </template>
 
@@ -80,6 +118,28 @@ export default {
   margin-top: -30px;
   padding: 50px 20px 20px 20px;
   background: var(--background);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+  background: linear-gradient(-90deg, var(--four), var(--third));
+}
+
+.card-icon img {
+  animation: slide 2s ease-in-out infinite alternate;
+}
+
+.card-title {
+  background: var(--secondary);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  width: 100%;
+  margin-left: 10%;
+  padding-left: 40%;
+  padding-right: 5%;
+  min-height: 100px;
+  border-radius: 15px;
 }
 
 .hb-content {
