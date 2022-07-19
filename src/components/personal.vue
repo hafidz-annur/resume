@@ -50,9 +50,9 @@ export default {
 
 .card {
   transition: all 0.4s;
-  background: var(--primary);
-  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--four);
+  background: var(--color-1);
+  // background-image: linear-gradient(135deg, var(--color-1), var(--color-2));
+  color: var(--text-color-1);
   border-radius: 20px;
 }
 

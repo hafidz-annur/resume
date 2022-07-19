@@ -74,30 +74,13 @@ export default {
   display: flex;
 }
 
-.edu-content::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-/* Track */
-.edu-content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(255, 239, 239);
-  border-radius: 10px;
-}
-
-/* Handle */
-.edu-content::-webkit-scrollbar-thumb {
-  background: rgb(238, 215, 215);
-  border-radius: 10px;
-}
-
 .edu-card {
   transition: all 0.4s;
   position: relative;
-  background: var(--secondary);
-  background-image: linear-gradient(-45deg, var(--secondary), var(--third));
-  color: var(--four);
-  box-shadow: var(--third);
+  background: var(--color-1);
+  // background-image: linear-gradient(-45deg, var(--secondary), var(--third));
+  color: var(--text-color-1);
+  box-shadow: var(--color-2);
   min-width: 60%;
   border-radius: 20px;
   padding: 10px 20px;
@@ -119,11 +102,11 @@ export default {
 }
 
 .year {
-  background: var(--primary);
+  background: var(--color-2);
   display: inline;
   padding: 5px 10px;
   border-radius: 20px;
-  color: var(--four);
+  color: var(--text-color-2);
   font-size: 0.7em;
 }
 
@@ -133,8 +116,8 @@ export default {
   bottom: -40px;
   font-size: 7em;
   transform: rotate(-40deg);
-  opacity: 0.2;
-  color: var(--primary);
+  opacity: 0.1;
+  color: var(--text-color-1);
   transition: all 0.3s ease-in-out;
   z-index: -1;
 }

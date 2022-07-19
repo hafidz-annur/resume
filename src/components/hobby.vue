@@ -4,7 +4,7 @@
 
     <Splide
       :options="{
-        autoplay: true,
+        // autoplay: true,
         type: 'loop',
         perPage: 1,
         interval: 2000,
@@ -117,14 +117,15 @@ export default {
   border-radius: 40px 40px 0 0;
   margin-top: -30px;
   padding: 50px 20px 20px 20px;
-  background: var(--background);
+  background: var(--color-6);
 }
 
 .card-icon {
   display: flex;
   align-items: center;
-  min-height: 70px;
-  background: linear-gradient(-90deg, var(--four), var(--third));
+  height: 75px;
+  background: var(--color-2);
+  // background: linear-gradient(-90deg, var(--four), var(--third));
 }
 
 .card-icon img {
@@ -132,8 +133,8 @@ export default {
 }
 
 .card-title {
-  background: var(--secondary);
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: var(--color-5);
+  color: var(--text-color-5);
   width: 100%;
   margin-left: 10%;
   padding-left: 40%;
@@ -142,85 +143,7 @@ export default {
   border-radius: 15px;
 }
 
-.hb-content {
-  position: relative;
-  height: 300px;
-  /* background: red; */
-  /* overflow: auto; */
-}
-
-.hb-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  padding: 15px;
-  background: var(--secondary);
-  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
-  transition: all 0.3s ease-in-out;
-}
-
-.hb-icon.active {
-  padding: 5px;
-  background: var(--third);
-  background-image: linear-gradient(45deg, var(--secondary), var(--third));
-}
-
-.hb-icon.hb-icon.active::after {
-  width: 20px;
-  height: 20px;
-  background: red;
-}
-
-.hb-icon img {
-  width: 100%;
-}
-
-.hb-text {
-  position: absolute;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  transform: translateX(-50%);
-  top: 32%;
-  display: flex;
-  padding: 10px;
-  line-height: 0.9;
-  font-size: 1.1rem;
-}
-
-.hb-1 {
-  position: absolute;
-  left: 50%;
-  top: -4%;
-  transform: translateX(-50%);
-}
-
-.hb-2 {
-  position: absolute;
-  left: 95%;
-  transform: translateX(-95%);
-  top: 23%;
-}
-
-.hb-3 {
-  position: absolute;
-  left: 75%;
-  transform: translateX(-75%);
-  top: 62%;
-}
-
-.hb-4 {
-  position: absolute;
-  left: 25%;
-  transform: translateX(-25%);
-  top: 62%;
-}
-
-.hb-5 {
-  position: absolute;
-  left: 5%;
-  transform: translateX(-5%);
-  top: 23%;
+.card-title h3 {
+  font-size: 1.3em !important;
 }
 </style>

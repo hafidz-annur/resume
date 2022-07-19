@@ -1,26 +1,5 @@
 <template>
   <div id="resume" :class="loading ? 'pt-4' : ''">
-    <div
-      class="d-flex align-items-center justify-content-center"
-      style="height: 100vh"
-      v-if="!loading"
-    >
-      <div class="w-100 text-center">
-        <img
-          src="../assets/img/loading.gif"
-          loading="lazy"
-          class="w-50"
-          style="margin-bottom: -60px"
-        />
-        <h4 class="my-0">
-          <VueWriter
-            :array="['Please Waiting']"
-            :eraseSpeed="40"
-            :typeSpeed="50"
-          />
-        </h4>
-      </div>
-    </div>
     <transition>
       <div class="" v-if="loading">
         <div class="d-flex align-content-between align-items-center w-100 px-2">
@@ -163,7 +142,7 @@ export default {
       function () {
         this.loading = true;
       }.bind(this),
-      3000
+      1000
     );
   },
 };

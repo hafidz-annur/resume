@@ -121,13 +121,9 @@ export default {
 <style lang="scss">
 #sosmed {
   transition: all 0.4s;
-  background: var(--secondary);
-  background-image: linear-gradient(
-    180deg,
-    var(--secondary),
-    var(--background)
-  );
-  color: var(--primary-color);
+  background: var(--color-5);
+  // background-image: linear-gradient(180deg, var(--color-5), var(--background));
+  color: var(--text-color-5);
   margin-top: -50px;
   padding: 80px 20px 30px 20px;
   border-radius: 40px 40px 0 0;
@@ -143,12 +139,12 @@ export default {
 
 .sosmed-icon {
   position: absolute;
-  right: 20px;
-  font-size: 3em;
+  right: 15px;
+  font-size: 2.5em;
   bottom: -15px;
   z-index: 0;
-  opacity: 0.3;
-  color: var(--primary);
+  opacity: 0.1;
+  color: var(--text-color-1);
 }
 
 .sosmed-name {
@@ -158,8 +154,8 @@ export default {
 }
 
 .sosmed-btn {
-  background: var(--four);
-  color: var(--primary);
+  background: var(--color-6);
+  color: var(--text-color-6);
   padding: 5px 15px;
   font-size: 0.8em;
   border: 0;
@@ -168,9 +164,9 @@ export default {
 
 .icon {
   width: 100%;
-  background: var(--third);
-  color: var(--four);
-  box-shadow: var(--secondary);
+  background: var(--color-6);
+  color: var(--text-color-6);
+  box-shadow: var(--color-3);
   padding: 7px 10px;
   text-align: center;
   border-radius: 10px;
@@ -179,9 +175,16 @@ export default {
   cursor: pointer;
 }
 
+.icon.icon i {
+  transition: all 0.2s ease-in-out;
+}
+
 .icon.active {
-  transform: scale(1.1);
-  background: var(--four);
-  color: var(--primary);
+  background: var(--color-4);
+  color: var(--text-color-4);
+}
+
+.icon.icon.active i {
+  transform: scale(1.2);
 }
 </style>

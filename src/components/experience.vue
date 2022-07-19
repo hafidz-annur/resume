@@ -1,6 +1,9 @@
 <template>
   <div id="experience">
-    <div class="row justify-content-center" v-if="currentWeather?.length != 0">
+    <div
+      class="row mt-3 justify-content-center"
+      v-if="currentWeather?.length != 0"
+    >
       <div class="col-11">
         <div class="d-flex justify-content-between align-items-center mb-2">
           <div class="text-start">
@@ -83,7 +86,6 @@
                     shadow-sm
                     card-weather
                     my-1
-                    text-muted
                     p-2
                     d-flex
                     align-items-center
@@ -100,7 +102,7 @@
                   </div>
                   <div class="text-end" style="width: 60%">
                     <p
-                      class="text-muted my-0 position-absolute"
+                      class="my-0 position-absolute"
                       style="
                         line-height: 15px;
                         font-size: 0.75em;
@@ -112,7 +114,7 @@
                       {{ customTime(i.time) }}
                     </p>
                     <p
-                      class="text-muted my-0 mt-3 f-status"
+                      class="my-0 mt-3 f-status"
                       style="line-height: 15px; text-transform: capitalize"
                     >
                       {{ i.condition.text }}
@@ -322,7 +324,9 @@ export default {
 
 <style lang="scss">
 .card-weather {
-  background-image: linear-gradient(-45deg, #fff 20%, var(--secondary) 100%);
+  // background: linear-gradient(-45deg, var(--color-6) 20%, var(--color-4) 100%);
+  background: var(--color-2);
+  color: var(--text-color-2);
 }
 
 .f-status {
@@ -333,9 +337,9 @@ export default {
   position: absolute;
   right: -30px;
   font-size: 8em;
-  transform: rotate(-30deg);
-  opacity: 0.2;
-  color: var(--primary);
+  transform: rotate(-30deg) !important;
+  opacity: 0.1;
+  color: var(--color-1);
   z-index: 0;
 }
 
@@ -357,7 +361,7 @@ export default {
 .ts-list {
   display: block;
   padding: 10px 5px 10px 15px;
-  border-left: 5px solid var(--primary);
+  border-left: 5px solid var(--color-5);
 }
 
 .ts-list::before {
@@ -368,19 +372,19 @@ export default {
   width: 20px;
   margin-top: -2px;
   margin-left: -27px;
-  background: var(--third);
+  background: var(--color-4);
   transition: all 0.4s;
 }
 
 .ts-list.active::before {
-  background: var(--secondary);
+  background: var(--color-1);
 }
 
 .ts-list.active {
-  background: var(--four);
-  background-image: linear-gradient(60deg, var(--four) 50%, #fff);
-  color: var(--primary);
-  border-radius: 0 10px 10px 0;
+  border-right: 2px solid var(--color-3);
+  // background-image: linear-gradient(60deg, var(--four) 50%, #fff);
+  // color: var(--text-color-3);
+  // border-radius: 0 10px 10px 0;
 }
 
 .ts-year {
@@ -398,16 +402,21 @@ export default {
 }
 
 .btn-city {
-  background: var(--secondary);
-  color: var(--four);
+  background: var(--color-4);
+  color: var(--text-color-4);
   border-radius: 20px;
   border: 0;
   transition: all 0.3s;
 }
 
+.btn-city:hover {
+  background: var(--color-6);
+  color: var(--text-color-6);
+}
+
 .btn-city.active {
-  background: var(--four);
-  color: var(--primary);
+  background: var(--color-5);
+  color: var(--text-color-5);
 }
 
 .exp-active {

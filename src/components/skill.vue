@@ -233,16 +233,22 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .swal2-container.swal2-center > .swal2-popup {
-  background: var(--background) !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 15px !important;
 }
 
 #skill {
   margin-top: -30px;
   padding: 50px 20px 50px 20px;
-  background: var(--secondary);
+  cursor: pointer;
+  background: var(--color-5);
   z-index: 0;
+}
+
+.title {
+  color: var(--text-color-5) !important;
 }
 
 .tab {
@@ -272,8 +278,8 @@ export default {
 }
 
 .tab-item {
-  background: var(--third);
-  color: var(--primary);
+  background: var(--color-2);
+  color: var(--text-color-2);
   padding: 5px 20px;
   margin-right: 8px;
   display: inline;
@@ -285,8 +291,8 @@ export default {
 }
 
 .tab-item.active {
-  background: var(--primary);
-  color: var(--four);
+  background: var(--color-1);
+  color: var(--text-color-1);
 }
 
 .skill-card {
@@ -296,8 +302,8 @@ export default {
 
 .skill-icon {
   padding: 0px 10px;
-  background: var(--primary);
-  background-image: linear-gradient(15deg, var(--secondary), var(--primary));
+  background: var(--color-6);
+  // background-image: linear-gradient(15deg, var(--secondary), var(--primary));
   border-radius: 10px;
   min-height: 80px;
   display: flex;

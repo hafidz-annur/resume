@@ -4,7 +4,7 @@
       <h5 class="mb-3">Portfolio</h5>
       <Splide
         :options="{
-          autoplay: true,
+          // autoplay: true,
           type: 'loop',
           width: '100%',
           interval: 4000,
@@ -16,18 +16,23 @@
         }"
       >
         <SplideSlide
-          class="position-relative overflow-hidden"
+          class="position-relative overflow-hidden shadow-sm"
           v-for="i in details"
           :key="i"
         >
-          <div class="p-slide">
-            <img
-              :src="require('@/assets/img/portofolio/' + i.img)"
-              alt="Resume"
-            />
-          </div>
-          <div class="p-desc">
-            {{ i.desc }}
+          <div
+            class="card-pt position-relative overflow-hidden py-2"
+            style="border-radius: 10px"
+          >
+            <div class="p-slide">
+              <img
+                :src="require('@/assets/img/portofolio/' + i.img)"
+                alt="Resume"
+              />
+            </div>
+            <div class="p-desc">
+              {{ i.desc }}
+            </div>
           </div>
         </SplideSlide>
       </Splide>
@@ -70,9 +75,8 @@ export default {
 
 <style lang="scss">
 #portofolio {
-  margin-top: 140px;
-  background: var(--primary);
-  background-image: linear-gradient(0deg, var(--secondary), var(--background));
+  margin-top: -20px;
+  background: var(--color-6);
   padding: 40px 20px 50px 20px;
   border-radius: 30px 30px 0 0;
 }
@@ -80,7 +84,6 @@ export default {
 .p-card {
   position: relative;
   border-radius: 10px !important;
-  margin-top: -150px;
 }
 
 .p-slide img {
@@ -99,17 +102,25 @@ export default {
 }
 
 .p-desc {
-  background: var(--primary);
-  background-image: linear-gradient(45deg, var(--four), rgb(239, 230, 214));
-  color: var(--primary);
-  position: relative;
-  width: 90%;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: var(--color-4);
+  color: var(--text-color-4);
   margin: auto;
   z-index: 9;
   padding: 20px;
-  font-size: 0.8em;
-  margin-top: -40px;
-  border-radius: 20px;
+  font-size: 1em;
+  border-radius: 0 0 10px 10px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-pt:hover .p-desc {
+  bottom: 0;
 }
 </style>

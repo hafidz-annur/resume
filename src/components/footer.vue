@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss">
 #footer {
-  background: var(--primary);
-  color: var(--four);
+  background: var(--color-5);
+  color: var(--text-color-5);
 }
 </style>

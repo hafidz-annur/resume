@@ -1,0 +1,35 @@
+:root {
+    --background: rgb(249, 249, 249);
+
+    --color-1: #f79256;
+    --color-2: #fbd1a2;
+    --color-3: #7dcfb6;
+    --color-4: #00b2ca;
+    --color-5: #1d4e89;
+    --color-6: #fff;
+
+    --text-color-1: #fff;
+    --text-color-2: rgb(21, 21, 21);
+    --text-color-3: rgb(21, 21, 21);
+    --text-color-4: #fff;
+    --text-color-5: #fff;
+    --text-color-6: rgb(21, 21, 21);
+}
+
+:root[data-theme='dark'] {
+    --background: rgb(28, 27, 27);
+
+    --color-1: #08090a;
+    --color-2: #a7a2a9;
+    --color-3: #f4f7f5;
+    --color-4: #575a5e;
+    --color-5: #222823;
+    --color-6: rgb(21, 21, 21);
+
+    --text-color-1: #fff;
+    --text-color-2: rgb(252, 252, 252);
+    --text-color-3: rgb(40, 40, 40);
+    --text-color-4: rgb(241, 241, 241);
+    --text-color-5: rgb(240, 240, 240);
+    --text-color-6: #fff;
+}
