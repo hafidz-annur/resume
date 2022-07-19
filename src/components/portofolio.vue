@@ -31,7 +31,10 @@
               />
             </div>
             <div class="p-desc">
-              {{ i.desc }}
+              <div class="">
+                <i class="fa-solid fa-circle-info mb-2"></i> <br />
+                {{ i.desc }}
+              </div>
             </div>
           </div>
         </SplideSlide>
