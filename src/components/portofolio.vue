@@ -58,7 +58,7 @@
                 class="w-100"
               />
               <div class="title-sum text-center">
-                <h6 class="my-0">{{ i.title }}</h6>
+                <p class="my-0">{{ i.title }}</p>
               </div>
             </div>
           </div>
