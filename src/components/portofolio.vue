@@ -294,7 +294,7 @@ export default {
 }
 
 .img-sum {
-  height: 110px;
+  height: 80px;
 }
 
 .img-sum img {
