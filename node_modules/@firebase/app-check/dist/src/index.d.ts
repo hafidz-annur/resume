@@ -1,0 +1,14 @@
+import { FirebaseAppCheck, ReCaptchaV3Provider, CustomProvider } from '@firebase/app-check-types';
+/**
+ * Define extension behavior of `registerAnalytics`
+ */
+declare module '@firebase/app-types' {
+    interface FirebaseNamespace {
+        appCheck(app?: FirebaseApp): FirebaseAppCheck;
+        ReCaptchaV3Provider: typeof ReCaptchaV3Provider;
+        CustomProvider: typeof CustomProvider;
+    }
+    interface FirebaseApp {
+        appCheck(): FirebaseAppCheck;
+    }
+}

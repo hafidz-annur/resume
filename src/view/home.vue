@@ -62,14 +62,18 @@
         <v-skill />
         <v-hobby />
         <v-portofolio />
+        <v-contact :messageList="contact_list" @check="getData" />
         <v-footer />
       </div>
     </transition>
   </div>
+  {{ data_test }}
 </template>
 
 
 <script>
+import Services from "../Services";
+
 import Personal from "@/components/personal";
 import Sosmed from "@/components/sosmed";
 import Experience from "@/components/experience";
@@ -77,6 +81,7 @@ import Education from "@/components/education";
 import Skill from "@/components/skill";
 import Hobby from "@/components/hobby";
 import Portofolio from "@/components/portofolio";
+import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
 export default {
@@ -89,6 +94,7 @@ export default {
     "v-skill": Skill,
     "v-hobby": Hobby,
     "v-portofolio": Portofolio,
+    "v-contact": Contact,
     "v-footer": Footer,
   },
   data() {
@@ -97,9 +103,20 @@ export default {
       status: true,
       lang: "",
       loading: false,
+      contact_list: [],
     };
   },
   methods: {
+    getData() {
+      let list = [];
+      Services.getAll().on("value", (snap) => {
+        snap.forEach(function (childSnap) {
+          list.push(childSnap.val());
+        });
+      });
+      this.contact_list = list;
+    },
+
     checkMode(theme) {
       this.mode = theme;
       document.documentElement.setAttribute("data-theme", theme);
@@ -129,6 +146,7 @@ export default {
   },
   created() {
     document.title = "My Resume - Hafidz Annur Fanany";
+    this.getData();
 
     // this.$router.push({ path: "/" });
 

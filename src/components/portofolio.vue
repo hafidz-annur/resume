@@ -301,8 +301,8 @@ export default {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 10px;
-  animation: slide 3s ease-in-out alternate infinite;
+  // border-radius: 10px;
+  // animation: slide 3s ease-in-out alternate infinite;
 }
 
 .title-sum {
@@ -319,8 +319,10 @@ export default {
   transition: all 0.3s;
 }
 
-.title-sum h6 {
-  font-weight: 600 !important;
+.title-sum p {
+  font-size: 0.8em !important;
+  padding: 10px;
+  line-height: 15px !important;
   color: var(--text-color-1);
 }
 
