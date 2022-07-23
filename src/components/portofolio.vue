@@ -1,5 +1,5 @@
 <template>
-  <div id="portofolio">
+  <div id="portofolio" data-aos="fade-up" data-aos-duration="1000">
     <div class="p-card">
       <h5 class="mb-3">Portfolio</h5>
 
@@ -36,10 +36,10 @@
       <Splide
         :options="{
           // autoplay: true,
-          perPage: 3,
+          perPage: 2,
           width: '100%',
           interval: 4000,
-          gap: 15,
+          gap: 10,
           // type: 'loop',
           arrows: false,
           pagination: false,
@@ -219,7 +219,7 @@ export default {
 .detail-img {
   position: relative;
   overflow: hidden;
-  height: 300px;
+  height: 250px;
   border-radius: 15px;
 }
 

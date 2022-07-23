@@ -1,136 +1,143 @@
 <template>
   <div id="experience">
-    <div
-      class="row mt-3 justify-content-center"
-      v-if="currentWeather?.length != 0"
-    >
-      <div class="col-11">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div class="text-start">
-            <button
-              class="btn btn-city btn-sm py-1 px-3 shadow-sm me-1"
-              :class="city == 'Srengseng Jakarta' ? 'active' : ''"
-              @click="checkLocation('Srengseng Jakarta')"
-            >
-              Srengseng
-            </button>
-            <button
-              class="btn btn-city btn-sm py-1 px-3 shadow-sm"
-              :class="city == 'Surakarta' ? 'active' : ''"
-              @click="checkLocation('Surakarta')"
-            >
-              Surakarta
-            </button>
-          </div>
-          <div class="text-end" v-if="yourLocation.latitude != ''">
-            <button
-              class="btn btn-city btn-sm py-1 px-3 shadow-sm"
-              :class="city == 'Location' ? 'active' : ''"
-              @click="getWetaherByLocation(yourLocation)"
-            >
-              Your Location
-            </button>
-          </div>
-        </div>
-        <div class="card shadow-sm border-0">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="text-center" style="width: 40%">
-                <div class="px-3">
-                  <img
-                    :src="currentWeather.condition.icon"
-                    alt=""
-                    class="w-50"
-                    style="
-                      animation: up-bottom 2s ease-in-out infinite alternate;
-                    "
-                  />
-                </div>
-                <p class="my-0" style="text-transform: capitalize">
-                  {{ currentWeather.condition.text }}
-                </p>
-              </div>
-              <div
-                class="ps-2 text-end"
-                style="width: 60%"
-                v-if="locationWeather?.length != 0"
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div
+        class="row mt-3 justify-content-center"
+        v-if="currentWeather?.length != 0"
+      >
+        <div class="col-11">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="text-start">
+              <button
+                class="btn btn-city btn-sm py-1 px-3 shadow-sm me-1"
+                :class="city == 'Srengseng Jakarta' ? 'active' : ''"
+                @click="checkLocation('Srengseng Jakarta')"
               >
-                <h6 class="my-0">
-                  {{ locationWeather.region + ", " + locationWeather.country }}
-                </h6>
-                <h3 class="my-0">{{ locationWeather.name }}</h3>
-                <small class="">
-                  {{ customDate(locationWeather.localtime) }}
-                </small>
-              </div>
+                Srengseng
+              </button>
+              <button
+                class="btn btn-city btn-sm py-1 px-3 shadow-sm"
+                :class="city == 'Surakarta' ? 'active' : ''"
+                @click="checkLocation('Surakarta')"
+              >
+                Surakarta
+              </button>
             </div>
-            <Splide
-              :options="{
-                perPage: 2,
-                width: '100%',
-                gap: 15,
-                arrows: false,
-                padding: { left: 0, right: 20 },
-                pagination: false,
-              }"
-              class="mt-2"
-              v-if="nextHour?.length != 0"
-            >
-              <SplideSlide
-                class="align-items-stretch d-grid"
-                v-for="i in nextHour"
-                :key="i"
+            <div class="text-end" v-if="yourLocation.latitude != ''">
+              <button
+                class="btn btn-city btn-sm py-1 px-3 shadow-sm"
+                :class="city == 'Location' ? 'active' : ''"
+                @click="getWetaherByLocation(yourLocation)"
               >
-                <div
-                  class="
-                    shadow-sm
-                    card-weather
-                    my-1
-                    p-2
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                  "
-                  style="border-radius: 10px"
-                >
-                  <div class="pe-1" style="width: 40%">
+                Your Location
+              </button>
+            </div>
+          </div>
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="text-center" style="width: 40%">
+                  <div class="px-3">
                     <img
-                      :src="i.condition.icon"
-                      class="w-100"
-                      style="animation: slide 2s ease-in-out infinite alternate"
+                      :src="currentWeather.condition.icon"
+                      alt=""
+                      class="w-50"
+                      style="
+                        animation: up-bottom 2s ease-in-out infinite alternate;
+                      "
                     />
                   </div>
-                  <div class="text-end" style="width: 60%">
-                    <p
-                      class="my-0 position-absolute"
-                      style="
-                        line-height: 15px;
-                        font-size: 0.75em;
-                        top: 15px;
-                        right: 10px;
-                      "
-                    >
-                      <i class="fa-regular fa-clock me-2"></i>
-                      {{ customTime(i.time) }}
-                    </p>
-                    <p
-                      class="my-0 mt-3 f-status"
-                      style="line-height: 15px; text-transform: capitalize"
-                    >
-                      {{ i.condition.text }}
-                    </p>
-                  </div>
+                  <p class="my-0" style="text-transform: capitalize">
+                    {{ currentWeather.condition.text }}
+                  </p>
                 </div>
-              </SplideSlide>
-            </Splide>
+                <div
+                  class="ps-2 text-end"
+                  style="width: 60%"
+                  v-if="locationWeather?.length != 0"
+                >
+                  <h6 class="my-0">
+                    {{
+                      locationWeather.region + ", " + locationWeather.country
+                    }}
+                  </h6>
+                  <h3 class="my-0">{{ locationWeather.name }}</h3>
+                  <small class="">
+                    {{ customDate(locationWeather.localtime) }}
+                  </small>
+                </div>
+              </div>
+              <Splide
+                :options="{
+                  perPage: 2,
+                  width: '100%',
+                  gap: 15,
+                  arrows: false,
+                  padding: { left: 0, right: 20 },
+                  pagination: false,
+                }"
+                class="mt-2"
+                v-if="nextHour?.length != 0"
+              >
+                <SplideSlide
+                  class="align-items-stretch d-grid"
+                  v-for="i in nextHour"
+                  :key="i"
+                >
+                  <div
+                    class="
+                      shadow-sm
+                      card-weather
+                      my-1
+                      p-2
+                      d-flex
+                      align-items-center
+                      justify-content-center
+                    "
+                    style="border-radius: 10px"
+                  >
+                    <div class="pe-1" style="width: 40%">
+                      <img
+                        :src="i.condition.icon"
+                        class="w-100"
+                        style="
+                          animation: slide 2s ease-in-out infinite alternate;
+                        "
+                      />
+                    </div>
+                    <div class="text-end" style="width: 60%">
+                      <p
+                        class="my-0 position-absolute"
+                        style="
+                          line-height: 15px;
+                          font-size: 0.75em;
+                          top: 15px;
+                          right: 10px;
+                        "
+                      >
+                        <i class="fa-regular fa-clock me-2"></i>
+                        {{ customTime(i.time) }}
+                      </p>
+                      <p
+                        class="my-0 mt-3 f-status"
+                        style="line-height: 15px; text-transform: capitalize"
+                      >
+                        {{ i.condition.text }}
+                      </p>
+                    </div>
+                  </div>
+                </SplideSlide>
+              </Splide>
+            </div>
           </div>
         </div>
       </div>
+      <div class="ex-icon">
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
     </div>
-    <div class="ex-icon">
-      <i class="fa-solid fa-briefcase"></i>
-    </div>
-    <div class="experience">
+
+    <div class="experience" data-aos="fade-up" data-aos-duration="1000">
       <div class="title">Experience</div>
       <div class="timeline d-flex align-items-end">
         <div class="timeline-sidebar">

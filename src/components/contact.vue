@@ -2,8 +2,8 @@
   <div id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h6>Contact Us</h6>
+        <div class="col-12 px-4">
+          <h6 class="text-center mt-2">Contact Us</h6>
           <form @submit.prevent="handleSubmit" class="mb-3">
             <div class="form-group mb-2">
               <input
@@ -40,9 +40,11 @@
               ></textarea>
               <label for="message">Message</label>
             </div>
-            <hr />
-            <div class="text-end">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="mt-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane me-1"></i>
+                Send a Message
+              </button>
             </div>
           </form>
         </div>
@@ -141,7 +143,17 @@ export default {
 
 <style scoped>
 #contact {
-  background: var(--color-6);
+  background: var(--color-2);
+  margin-top: 60px;
+  padding: 40px;
+}
+
+#contact .container {
+  margin-top: -90px;
+  padding: 10px;
+  background: var(--color-1);
+  border-radius: 15px;
+  color: var(--text-color-1);
 }
 
 .form-control {
@@ -191,7 +203,8 @@ textarea:not(:placeholder-shown) + label {
 }
 
 .btn-primary {
-  background: var(--color-1);
+  width: 100%;
+  background: var(--color-5);
   border: none !important;
   border-radius: 15px;
   padding: 5px 20px;

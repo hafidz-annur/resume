@@ -1,5 +1,5 @@
 <template>
-  <div id="education">
+  <div id="education" data-aos="fade-up" data-aos-duration="1000">
     <div class="title">Education</div>
     <Splide
       :options="{
@@ -86,6 +86,18 @@ export default {
   padding: 10px 20px;
   z-index: 1;
   overflow: hidden;
+}
+
+.edu-card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/img/pattern.webp");
+  background-size: 50%;
+  opacity: 0.1;
 }
 
 .school {

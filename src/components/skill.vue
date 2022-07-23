@@ -1,5 +1,5 @@
 <template>
-  <div id="skill">
+  <div id="skill" data-aos="fade-up" data-aos-duration="1000">
     <div class="title">Skills</div>
     <div class="tab">
       <div

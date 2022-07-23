@@ -67,7 +67,6 @@
       </div>
     </transition>
   </div>
-  {{ data_test }}
 </template>
 
 
