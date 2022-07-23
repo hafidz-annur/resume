@@ -1,5 +1,10 @@
 <template>
-  <div id="education" data-aos="fade-up" data-aos-duration="1000">
+  <div
+    id="education"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+  >
     <div class="title">Education</div>
     <Splide
       :options="{

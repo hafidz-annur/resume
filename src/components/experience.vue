@@ -1,6 +1,10 @@
 <template>
   <div id="experience">
-    <div data-aos="fade-up" data-aos-duration="1000">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <div
         class="row mt-3 justify-content-center"
         v-if="currentWeather?.length != 0"
@@ -137,7 +141,12 @@
       </div>
     </div>
 
-    <div class="experience" data-aos="fade-up" data-aos-duration="1000">
+    <div
+      class="experience"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <div class="title">Experience</div>
       <div class="timeline d-flex align-items-end">
         <div class="timeline-sidebar">

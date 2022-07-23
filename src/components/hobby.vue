@@ -1,5 +1,10 @@
 <template>
-  <div id="hobby" data-aos="fade-up" data-aos-duration="1000">
+  <div
+    id="hobby"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+  >
     <div class="title mb-2">Hobbies</div>
 
     <Splide

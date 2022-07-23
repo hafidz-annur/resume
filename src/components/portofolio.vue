@@ -1,5 +1,10 @@
 <template>
-  <div id="portofolio" data-aos="fade-up" data-aos-duration="1000">
+  <div
+    id="portofolio"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+  >
     <div class="p-card">
       <h5 class="mb-3">Portfolio</h5>
 
