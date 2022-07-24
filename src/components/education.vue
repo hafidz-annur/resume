@@ -68,7 +68,7 @@ export default {
   z-index: 1;
   padding: 20px;
   border-radius: 0 0 40px 40px;
-  background: var(--background);
+  background: var(--color-6);
 }
 
 .edu-content {

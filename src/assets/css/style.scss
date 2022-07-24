@@ -29,7 +29,7 @@ html[data-theme='dark'] {
 body {
     margin: 0;
     padding: 0;
-    background: var(--color-6);
+    background: var(--background);
 }
 
 .pointer {
@@ -40,8 +40,8 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0 35%;
-    background: var(--background);
-    color: var(--primary-color);
+    background: var(--color-6);
+    color: var(--text-color-6);
     font-family: $font-stack  !important;
     overflow: hidden;
 }

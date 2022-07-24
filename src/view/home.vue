@@ -183,7 +183,7 @@ export default {
 }
 
 #resume {
-  background: var(--background);
+  background: var(--color-6);
   position: relative;
 }
 
