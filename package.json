@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "gh-pages -d dist",
     "lint": "vue-cli-service lint"
+    
   },
   "dependencies": {
     "@splidejs/splide": "^4.0.7",
@@ -31,6 +33,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^6.3.0",
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0"
   },
