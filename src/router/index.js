@@ -6,6 +6,12 @@ const routes = [
         name: 'Home',
         component: () => import('../view/home')
     },
+
+    {
+        path: '/maps',
+        name: 'Maps',
+        component: () => import('../view/maps')
+    },
 ]
 
 const router = createRouter({

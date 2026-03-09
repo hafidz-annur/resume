@@ -89,15 +89,7 @@
                   :key="i"
                 >
                   <div
-                    class="
-                      shadow-sm
-                      card-weather
-                      my-1
-                      p-2
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="shadow-sm card-weather my-1 p-2 d-flex align-items-center justify-content-center"
                     style="border-radius: 10px"
                   >
                     <div class="pe-1" style="width: 40%">
@@ -155,24 +147,29 @@
             :class="tab == 1 ? 'active shadow-sm' : ''"
             @click="tab = 1"
           >
-            <div class="ts-year">2021-Current</div>
+            <div class="ts-year">2022 - Present</div>
             <div class="ts-pos">Software Engineer Senior</div>
-            <hr class="my-1" />
-            <div class="ts-year">2019-2021</div>
-            <div class="ts-pos">Software Engineer Associate</div>
           </div>
           <div
             class="ts-list pointer"
             :class="tab == 2 ? 'active shadow-sm' : ''"
             @click="tab = 2"
           >
-            <div class="ts-year">2015-2018</div>
-            <div class="ts-pos">IT Staff</div>
+            <div class="ts-year">2019 - 2022</div>
+            <div class="ts-pos">Software Engineer</div>
           </div>
           <div
             class="ts-list pointer"
             :class="tab == 3 ? 'active shadow-sm' : ''"
             @click="tab = 3"
+          >
+            <div class="ts-year">2015-2018</div>
+            <div class="ts-pos">IT Staff</div>
+          </div>
+          <div
+            class="ts-list pointer"
+            :class="tab == 4 ? 'active shadow-sm' : ''"
+            @click="tab = 4"
           >
             <div class="ts-year">2016</div>
             <div class="ts-pos">Web Developer (Internship)</div>
@@ -181,29 +178,38 @@
         <div class="timeline-content text-end">
           <transition name="slide">
             <div v-if="tab == 1">
-              PT. Jawara Edukasih Indonesia
+              <strong>EduALL</strong>
               <hr class="my-1" />
-              Managing all-in's website, such as maintaining, designing and
-              improving the website performance. After that i have made several
-              systems from planning until implementation, and this system can
-              help and make it easier for company to improve performance.
+              Leading the development of internal platforms and scalable systems
+              using Laravel, Vue.js, and AWS. Focused on system architecture,
+              workflow automation, cloud infrastructure, and AI-powered
+              integrations to improve operational efficiency.
             </div>
           </transition>
 
           <transition name="slide">
             <div v-if="tab == 2">
-              Taman Cerdas Puntadewa
+              <strong>EduALL</strong>
               <hr class="my-1" />
-              Guide childs around 7th until 15th years old to learn about
-              computer science, such as how to use computer from turning on and
-              off the computer, using microsoft office and painting with windows
-              feature etc.
+              Developed and maintained internal web applications using Laravel
+              and Vue.js, supporting academic and operational workflows while
+              improving system performance and reliability.
             </div>
           </transition>
 
           <transition name="slide">
             <div v-if="tab == 3">
-              CV. Jogja Web Center
+              <strong>Taman Cerdas Puntadewa</strong>
+              <hr class="my-1" />
+              Introduced students to computer fundamentals, teaching basic
+              software usage and digital creativity through multimedia and
+              introductory technology learning.
+            </div>
+          </transition>
+
+          <transition name="slide">
+            <div v-if="tab == 4">
+              <strong>Jogja Web Center</strong>
               <hr class="my-1" />
               Learn about how to build and maintance the website with wordpress
               platform. After that for my taks, i have made the financial system
@@ -281,7 +287,7 @@ export default {
         const response = await axios.get(
           "https://api.weatherapi.com/v1/forecast.json?key=61d9ab06af804125b17123311221507&q=" +
             city +
-            "&aqi=yes"
+            "&aqi=yes",
         );
 
         this.locationWeather = response.data.location;
@@ -311,7 +317,7 @@ export default {
             i.latitude +
             "," +
             i.longitude +
-            "&aqi=yes"
+            "&aqi=yes",
         );
 
         this.locationWeather = response.data.location;

@@ -5,10 +5,13 @@
 
       <VueWriter
         :array="[
-          'Software Engineer Senior',
-          'Web Developer',
-          'Son of My Mother',
-          'Husband of My Wife',
+          'Senior Software Engineer',
+          'Full-Stack Developer',
+          'System Architect',
+          'Automation Builder',
+          'AI Integration Engineer',
+          'Husband',
+          'Father',
         ]"
         :eraseSpeed="40"
         :typeSpeed="50"
@@ -19,9 +22,9 @@
       <div class="card-body">
         <div class="profil">
           <div class="desc">
-            I have experience in web developer since 2018. I have developed many
-            web-apps using PHP native, CI Framework, Laravel Framework,
-            Bootsrap, VueJs etc
+            Software Engineer with 5+ years of experience building scalable web
+            applications and internal platforms. Specialized in Laravel, Vue.js,
+            AWS, and workflow automation.
           </div>
           <div class="foto">
             <img src="@/assets/img/hafidz.webp" alt="" />
